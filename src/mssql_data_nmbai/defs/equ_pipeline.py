@@ -58,7 +58,7 @@ def get_quipment_data():
 
 @dlt.source
 def equipment_source():
-    return get_devis_data()
+    return get_quipment_data()
 
 ##### EXTRACT V_devis_dashboard_am #############
 @dlt.resource(
