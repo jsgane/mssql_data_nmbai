@@ -2,8 +2,8 @@ import dagster as dg
 from dagster import AssetExecutionContext
 from dagster_embedded_elt.dlt import DagsterDltResource, dlt_assets
 import dlt
-#from mssql_data_nmbai.defs.equ_pipeline import equipment_source, devis_source, commande_source, facture_source
-from mssql_data_nmbai.defs.mssql_sources import equipment_source, devis_source, commande_source, facture_source
+from mssql_data_nmbai.defs.equ_pipeline import equipment_source, devis_source, commande_source, facture_source
+#from mssql_data_nmbai.defs.mssql_sources import equipment_source, devis_source, commande_source, facture_source
 
 
 

@@ -64,6 +64,28 @@ def equipment_source():
 @dlt.resource(
     name="V_devis_dashboard_am",
     write_disposition="replace",
+    columns={
+        "quantite_devis": {
+            "data_type": "decimal",
+            "precision": 14,
+            "scale": 6,
+        },
+        "quantite_restante_a_facturer": {
+            "data_type": "decimal",
+            "precision": 14,
+            "scale": 6,
+        },
+        "gcd_quantite_commande": {
+            "data_type": "decimal",
+            "precision": 14,
+            "scale": 6,
+        },
+        "gfd_montant_vente_euros": {
+            "data_type": "decimal",
+            "precision": 18,
+            "scale": 6,
+        },
+    }
 )
 def get_devis_data():
     
