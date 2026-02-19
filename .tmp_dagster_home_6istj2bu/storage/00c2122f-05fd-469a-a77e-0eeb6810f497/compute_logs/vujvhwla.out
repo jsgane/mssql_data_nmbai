@@ -1,0 +1,93 @@
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 0.00s | Rate: 0.00/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 865.60s | Rate: 0.00/s
+v_devis_dashboard_am: 300000  | Time: 0.00s | Rate: 4626070588.24/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 1373.52s | Rate: 0.00/s
+v_devis_dashboard_am: 600000  | Time: 507.92s | Rate: 1181.29/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 1876.90s | Rate: 0.00/s
+v_devis_dashboard_am: 900000  | Time: 1011.30s | Rate: 889.94/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 2359.91s | Rate: 0.00/s
+v_devis_dashboard_am: 1200000  | Time: 1494.30s | Rate: 803.05/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 2831.70s | Rate: 0.00/s
+v_devis_dashboard_am: 1500000  | Time: 1966.10s | Rate: 762.93/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 3348.94s | Rate: 0.00/s
+v_devis_dashboard_am: 1800000  | Time: 2483.33s | Rate: 724.83/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 3846.82s | Rate: 0.00/s
+v_devis_dashboard_am: 2100000  | Time: 2981.22s | Rate: 704.41/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 4350.99s | Rate: 0.00/s
+v_devis_dashboard_am: 2400000  | Time: 3485.38s | Rate: 688.59/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 4909.04s | Rate: 0.00/s
+v_devis_dashboard_am: 2700000  | Time: 4043.44s | Rate: 667.75/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 5409.64s | Rate: 0.00/s
+v_devis_dashboard_am: 3000000  | Time: 4544.03s | Rate: 660.21/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 5902.41s | Rate: 0.00/s
+v_devis_dashboard_am: 3300000  | Time: 5036.81s | Rate: 655.18/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 6394.35s | Rate: 0.00/s
+v_devis_dashboard_am: 3600000  | Time: 5528.75s | Rate: 651.14/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 6695.34s | Rate: 0.00/s
+v_devis_dashboard_am: 3777905  | Time: 5829.74s | Rate: 648.04/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 1/1 (100.0%) | Time: 6695.71s | Rate: 0.00/s
+v_devis_dashboard_am: 3777905  | Time: 5830.11s | Rate: 648.00/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 0.00s | Rate: 0.00/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 0.00s | Rate: 0.00/s
+_dlt_pipeline_state: 1  | Time: 0.00s | Rate: 246723.76/s
+
+----------------------------- Extract devis_source -----------------------------
+Resources: 1/1 (100.0%) | Time: 0.02s | Rate: 61.28/s
+_dlt_pipeline_state: 1  | Time: 0.01s | Rate: 77.87/s
+
+----------------- Normalize devis_source in 1771501601.8127768 -----------------
+Files: 0/2 (0.0%) | Time: 0.00s | Rate: 0.00/s
+
+----------------- Normalize devis_source in 1771501601.8127768 -----------------
+Files: 0/2 (0.0%) | Time: 0.00s | Rate: 0.00/s
+Items: 0  | Time: 0.00s | Rate: 0.00/s
+
+----------------- Normalize devis_source in 1771501601.8127768 -----------------
+Files: 2/2 (100.0%) | Time: 0.07s | Rate: 30.01/s
+Items: 3777906  | Time: 0.07s | Rate: 56732758.03/s
+
+------------------- Load devis_source in 1771501601.8127768 --------------------
+Jobs: 0/2 (0.0%) | Time: 0.00s | Rate: 0.00/s
+
+------------------- Load devis_source in 1771501601.8127768 --------------------
+Jobs: 0/2 (0.0%) | Time: 15.66s | Rate: 0.00/s
+
+------------------- Load devis_source in 1771501601.8127768 --------------------
+Jobs: 1/2 (50.0%) | Time: 108.88s | Rate: 0.01/s
+
+------------------- Load devis_source in 1771501601.8127768 --------------------
+Jobs: 2/2 (100.0%) | Time: 112.71s | Rate: 0.02/s
+

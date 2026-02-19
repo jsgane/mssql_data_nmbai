@@ -7,7 +7,7 @@ from dlt.sources.credentials import ConnectionStringCredentials
 from dlt.sources.sql_database import sql_database
 import urllib.parse
 import os
-
+from dlt.extract.resource import DltResource
 
 def get_mssql_engine():
 
@@ -43,7 +43,7 @@ def get_mssql_engine():
     name="V_Equipment",
     write_disposition="replace",
 )
-def get_quipment_data():
+def get_quipment_data() -> DltResource:
     
     source_sta = sql_database(
         get_mssql_engine(),
@@ -51,9 +51,11 @@ def get_quipment_data():
         chunk_size=300_000,
         reflection_level="minimal",
         include_views=True,
-    ).with_resources("V_Equipment").parallelize()
+    )
     
-    return source_sta
+    resource = source_sta.V_Equipment
+    
+    return resource.parallelize()
 
 
 @dlt.source
@@ -64,45 +66,38 @@ def equipment_source():
 @dlt.resource(
     name="V_devis_dashboard_am",
     write_disposition="replace",
-    columns={
-        "quantite_devis": {
-            "data_type": "decimal",
-            "precision": 14,
-            "scale": 6,
-        },
-        "quantite_restante_a_facturer": {
-            "data_type": "decimal",
-            "precision": 14,
-            "scale": 6,
-        },
-        "gcd_quantite_commande": {
-            "data_type": "decimal",
-            "precision": 14,
-            "scale": 6,
-        },
-        "gfd_montant_vente_euros": {
-            "data_type": "decimal",
-            "precision": 18,
-            "scale": 6,
-        },
-    }
+
 )
-def get_devis_data():
+def get_devis_data() -> DltResource:
     
-    source_sta = sql_database(
+    source = sql_database(
         get_mssql_engine(),
         backend="pyarrow",
         chunk_size=300_000,
         reflection_level="minimal",
         include_views=True,
-    ).with_resources("V_devis_dashboard_am").parallelize()
-    
-    return source_sta
+    )
+
+    resource = source.V_devis_dashboard_am
+
+    resource.apply_hints(
+        columns={
+            "quantite_devis": {"data_type": "decimal", "precision": 14, "scale": 6},
+            "quantite_restante_a_facturer": {"data_type": "decimal", "precision": 14, "scale": 6},
+            "montant_vente_euros": {"data_type": "decimal", "precision": 18, "scale": 6},
+            "gcd_quantite_commande": {"data_type": "decimal", "precision": 14, "scale": 6},
+            "gcd_montant_vente_euros": {"data_type": "decimal", "precision": 18, "scale": 6},
+            "gfd_quantite_facture": {"data_type": "decimal", "precision": 18, "scale": 6},
+            "gfd_montant_vente_euros": {"data_type": "decimal", "precision": 18, "scale": 6},
+        }
+    )
+
+    return resource.parallelize()
 
 
 @dlt.source
 def devis_source():
-    return get_devis_data()
+    return [get_devis_data()]
 
 
 ##### EXTRACT V_commande_dashboard_am #############
@@ -111,7 +106,7 @@ def devis_source():
     name="V_commande_dashboard_am",
     write_disposition="replace",
 )
-def get_commande_data():
+def get_commande_data() -> DltResource:
     
     source_sta = sql_database(
         get_mssql_engine(),
@@ -119,9 +114,10 @@ def get_commande_data():
         chunk_size=300_000,
         reflection_level="minimal",
         include_views=True,
-    ).with_resources("V_commande_dashboard_am").parallelize()
+    )
+    resource = source_sta.V_commande_dashboard_am
     
-    return source_sta
+    return resource.parallelize()
 
 
 @dlt.source
@@ -135,7 +131,7 @@ def commande_source():
     name="V_facture_dashboard_am",
     write_disposition="replace",
 )
-def get_facture_data():
+def get_facture_data() -> DltResource:
     
     source_sta = sql_database(
         get_mssql_engine(),
@@ -143,9 +139,10 @@ def get_facture_data():
         chunk_size=300_000,
         reflection_level="minimal",
         include_views=True,
-    ).with_resources("V_facture_dashboard_am").parallelize()
+    )
+    resource = source_sta.V_facture_dashboard_am
     
-    return source_sta
+    return resource.parallelize()
 
 
 @dlt.source
