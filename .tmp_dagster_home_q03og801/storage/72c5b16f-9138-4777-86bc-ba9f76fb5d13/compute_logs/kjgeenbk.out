@@ -1,0 +1,270 @@
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 0.00s | Rate: 0.00/s
+Memory usage: 257.28 MB (25.60%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1080.67s | Rate: 0.00/s
+v_facture_dashboard_am: 100000  | Time: 0.00s | Rate: 4559026086.96/s
+Memory usage: 670.71 MB (31.20%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1097.95s | Rate: 0.00/s
+v_facture_dashboard_am: 200000  | Time: 17.29s | Rate: 11568.71/s
+Memory usage: 946.72 MB (34.70%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1119.35s | Rate: 0.00/s
+v_facture_dashboard_am: 300000  | Time: 38.68s | Rate: 7755.40/s
+Memory usage: 962.67 MB (35.00%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1136.25s | Rate: 0.00/s
+v_facture_dashboard_am: 400000  | Time: 55.58s | Rate: 7196.98/s
+Memory usage: 965.44 MB (35.00%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1151.47s | Rate: 0.00/s
+v_facture_dashboard_am: 500000  | Time: 70.81s | Rate: 7061.38/s
+Memory usage: 977.88 MB (35.20%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1169.37s | Rate: 0.00/s
+v_facture_dashboard_am: 600000  | Time: 88.70s | Rate: 6764.42/s
+Memory usage: 975.04 MB (35.10%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1193.90s | Rate: 0.00/s
+v_facture_dashboard_am: 700000  | Time: 113.23s | Rate: 6182.04/s
+Memory usage: 978.23 MB (35.10%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1217.04s | Rate: 0.00/s
+v_facture_dashboard_am: 800000  | Time: 136.38s | Rate: 5866.17/s
+Memory usage: 985.24 MB (35.30%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1235.56s | Rate: 0.00/s
+v_facture_dashboard_am: 900000  | Time: 154.89s | Rate: 5810.43/s
+Memory usage: 987.48 MB (35.30%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1256.95s | Rate: 0.00/s
+v_facture_dashboard_am: 1000000  | Time: 176.28s | Rate: 5672.64/s
+Memory usage: 942.54 MB (35.20%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1270.11s | Rate: 0.00/s
+v_facture_dashboard_am: 1100000  | Time: 189.45s | Rate: 5806.38/s
+Memory usage: 987.71 MB (35.40%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1293.35s | Rate: 0.00/s
+v_facture_dashboard_am: 1200000  | Time: 212.69s | Rate: 5642.14/s
+Memory usage: 998.09 MB (35.40%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1317.54s | Rate: 0.00/s
+v_facture_dashboard_am: 1300000  | Time: 236.87s | Rate: 5488.17/s
+Memory usage: 1013.87 MB (35.60%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1333.94s | Rate: 0.00/s
+v_facture_dashboard_am: 1400000  | Time: 253.27s | Rate: 5527.65/s
+Memory usage: 1020.18 MB (35.70%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1355.82s | Rate: 0.00/s
+v_facture_dashboard_am: 1500000  | Time: 275.15s | Rate: 5451.48/s
+Memory usage: 1022.91 MB (35.80%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1374.40s | Rate: 0.00/s
+v_facture_dashboard_am: 1600000  | Time: 293.73s | Rate: 5447.11/s
+Memory usage: 1023.40 MB (35.80%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1393.97s | Rate: 0.00/s
+v_facture_dashboard_am: 1700000  | Time: 313.31s | Rate: 5426.02/s
+Memory usage: 1028.45 MB (35.90%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1434.13s | Rate: 0.00/s
+v_facture_dashboard_am: 1800000  | Time: 353.46s | Rate: 5092.46/s
+Memory usage: 1033.21 MB (35.90%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1470.08s | Rate: 0.00/s
+v_facture_dashboard_am: 1900000  | Time: 389.42s | Rate: 4879.10/s
+Memory usage: 1034.80 MB (35.90%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1503.24s | Rate: 0.00/s
+v_facture_dashboard_am: 2000000  | Time: 422.57s | Rate: 4732.94/s
+Memory usage: 1034.62 MB (36.00%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1521.08s | Rate: 0.00/s
+v_facture_dashboard_am: 2100000  | Time: 440.41s | Rate: 4768.26/s
+Memory usage: 1039.88 MB (36.00%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1550.93s | Rate: 0.00/s
+v_facture_dashboard_am: 2200000  | Time: 470.26s | Rate: 4678.22/s
+Memory usage: 1052.70 MB (36.20%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1578.90s | Rate: 0.00/s
+v_facture_dashboard_am: 2300000  | Time: 498.23s | Rate: 4616.34/s
+Memory usage: 1058.63 MB (36.40%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1616.86s | Rate: 0.00/s
+v_facture_dashboard_am: 2400000  | Time: 536.19s | Rate: 4476.03/s
+Memory usage: 1052.52 MB (42.40%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1643.36s | Rate: 0.00/s
+v_facture_dashboard_am: 2500000  | Time: 562.70s | Rate: 4442.90/s
+Memory usage: 1057.85 MB (42.10%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1667.31s | Rate: 0.00/s
+v_facture_dashboard_am: 2600000  | Time: 586.64s | Rate: 4432.01/s
+Memory usage: 1053.27 MB (42.00%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1685.79s | Rate: 0.00/s
+v_facture_dashboard_am: 2700000  | Time: 605.12s | Rate: 4461.92/s
+Memory usage: 1053.34 MB (41.40%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1702.19s | Rate: 0.00/s
+v_facture_dashboard_am: 2800000  | Time: 621.53s | Rate: 4505.04/s
+Memory usage: 1053.19 MB (41.40%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1724.02s | Rate: 0.00/s
+v_facture_dashboard_am: 2900000  | Time: 643.35s | Rate: 4507.64/s
+Memory usage: 1052.79 MB (41.40%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1747.02s | Rate: 0.00/s
+v_facture_dashboard_am: 3000000  | Time: 666.35s | Rate: 4502.13/s
+Memory usage: 1052.34 MB (41.50%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1763.13s | Rate: 0.00/s
+v_facture_dashboard_am: 3100000  | Time: 682.46s | Rate: 4542.36/s
+Memory usage: 1053.09 MB (41.30%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1778.48s | Rate: 0.00/s
+v_facture_dashboard_am: 3200000  | Time: 697.81s | Rate: 4585.78/s
+Memory usage: 1053.32 MB (41.20%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1802.18s | Rate: 0.00/s
+v_facture_dashboard_am: 3300000  | Time: 721.51s | Rate: 4573.75/s
+Memory usage: 1053.37 MB (41.30%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1828.03s | Rate: 0.00/s
+v_facture_dashboard_am: 3400000  | Time: 747.37s | Rate: 4549.31/s
+Memory usage: 1053.42 MB (41.40%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1856.12s | Rate: 0.00/s
+v_facture_dashboard_am: 3500000  | Time: 775.45s | Rate: 4513.51/s
+Memory usage: 1052.42 MB (41.30%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1880.24s | Rate: 0.00/s
+v_facture_dashboard_am: 3600000  | Time: 799.58s | Rate: 4502.39/s
+Memory usage: 1052.84 MB (41.50%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1908.05s | Rate: 0.00/s
+v_facture_dashboard_am: 3700000  | Time: 827.38s | Rate: 4471.92/s
+Memory usage: 1055.50 MB (41.50%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1934.40s | Rate: 0.00/s
+v_facture_dashboard_am: 3800000  | Time: 853.74s | Rate: 4451.03/s
+Memory usage: 1055.63 MB (41.40%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1949.12s | Rate: 0.00/s
+v_facture_dashboard_am: 3900000  | Time: 868.45s | Rate: 4490.76/s
+Memory usage: 1060.02 MB (41.50%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 1970.54s | Rate: 0.00/s
+v_facture_dashboard_am: 4000000  | Time: 889.88s | Rate: 4495.01/s
+Memory usage: 1062.53 MB (41.50%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 2006.51s | Rate: 0.00/s
+v_facture_dashboard_am: 4100000  | Time: 925.84s | Rate: 4428.40/s
+Memory usage: 1065.55 MB (41.60%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 2042.45s | Rate: 0.00/s
+v_facture_dashboard_am: 4200000  | Time: 961.79s | Rate: 4366.87/s
+Memory usage: 1071.59 MB (41.70%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 0/1 (0.0%) | Time: 2057.45s | Rate: 0.00/s
+v_facture_dashboard_am: 4264076  | Time: 976.78s | Rate: 4365.43/s
+Memory usage: 1062.20 MB (41.60%) | CPU usage: 0.00%
+
+---------------------------- Extract facture_source ----------------------------
+Resources: 1/1 (100.0%) | Time: 2057.85s | Rate: 0.00/s
+v_facture_dashboard_am: 4264076  | Time: 977.18s | Rate: 4363.65/s
+Memory usage: 575.93 MB (35.30%) | CPU usage: 0.00%
+
+----------------------------- Extract tiers_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 0.00s | Rate: 0.00/s
+Memory usage: 567.00 MB (35.20%) | CPU usage: 0.00%
+
+----------------------------- Extract tiers_source -----------------------------
+Resources: 0/1 (0.0%) | Time: 0.00s | Rate: 0.00/s
+_dlt_pipeline_state: 1  | Time: 0.00s | Rate: 199728.76/s
+Memory usage: 565.00 MB (35.20%) | CPU usage: 0.00%
+
+----------------------------- Extract tiers_source -----------------------------
+Resources: 1/1 (100.0%) | Time: 0.02s | Rate: 53.76/s
+_dlt_pipeline_state: 1  | Time: 0.01s | Rate: 68.92/s
+Memory usage: 564.00 MB (35.20%) | CPU usage: 0.00%
+
+---------------- Normalize facture_source in 1771851237.787116 -----------------
+Files: 0/1 (0.0%) | Time: 0.00s | Rate: 0.00/s
+Memory usage: 545.10 MB (34.80%) | CPU usage: 0.00%
+
+---------------- Normalize facture_source in 1771851237.787116 -----------------
+Files: 0/1 (0.0%) | Time: 0.00s | Rate: 0.00/s
+Items: 0  | Time: 0.00s | Rate: 0.00/s
+Memory usage: 545.10 MB (34.80%) | CPU usage: 0.00%
+
+---------------- Normalize facture_source in 1771851237.787116 -----------------
+Files: 1/1 (100.0%) | Time: 0.04s | Rate: 28.51/s
+Items: 4264076  | Time: 0.03s | Rate: 122546686.19/s
+Memory usage: 540.23 MB (34.80%) | CPU usage: 0.00%
+
+----------------- Normalize tiers_source in 1771853295.655255 ------------------
+Files: 0/1 (0.0%) | Time: 0.00s | Rate: 0.00/s
+Memory usage: 540.23 MB (34.80%) | CPU usage: 0.00%
+
+----------------- Normalize tiers_source in 1771853295.655255 ------------------
+Files: 0/1 (0.0%) | Time: 0.00s | Rate: 0.00/s
+Items: 0  | Time: 0.00s | Rate: 0.00/s
+Memory usage: 540.23 MB (34.80%) | CPU usage: 0.00%
+
+----------------- Normalize tiers_source in 1771853295.655255 ------------------
+Files: 1/1 (100.0%) | Time: 0.02s | Rate: 53.92/s
+Items: 1  | Time: 0.02s | Rate: 54.87/s
+Memory usage: 536.25 MB (34.70%) | CPU usage: 0.00%
+
+------------------- Load facture_source in 1771851237.787116 -------------------
+Jobs: 0/1 (0.0%) | Time: 0.00s | Rate: 0.00/s
+Memory usage: 519.26 MB (34.50%) | CPU usage: 0.00%
+

@@ -1,5 +1,0 @@
-[32m2026-02-19 11:46:36 +0000[0m - dagster - [34mDEBUG[0m - devis_dashboard_job - 00c2122f-05fd-469a-a77e-0eeb6810f497 - 1743704 - LOGS_CAPTURED - Started capturing logs in process (pid: 1743704).
-[32m2026-02-19 11:46:36 +0000[0m - dagster - [34mDEBUG[0m - devis_dashboard_job - 00c2122f-05fd-469a-a77e-0eeb6810f497 - 1743704 - V_devis_dashboard_am - STEP_START - Started execution of step "V_devis_dashboard_am".
-[32m2026-02-19 13:40:10 +0000[0m - dagster - [34mDEBUG[0m - devis_dashboard_job - 00c2122f-05fd-469a-a77e-0eeb6810f497 - 1743704 - V_devis_dashboard_am - STEP_OUTPUT - Yielded output "dlt_devis_source_V_devis_dashboard_am" of type "Nothing". (Type check passed).
-[32m2026-02-19 13:40:10 +0000[0m - dagster - [34mDEBUG[0m - devis_dashboard_job - 00c2122f-05fd-469a-a77e-0eeb6810f497 - 1743704 - V_devis_dashboard_am - ASSET_MATERIALIZATION - Materialized value dlt_devis_source_V_devis_dashboard_am.
-[32m2026-02-19 13:40:10 +0000[0m - dagster - [34mDEBUG[0m - devis_dashboard_job - 00c2122f-05fd-469a-a77e-0eeb6810f497 - 1743704 - V_devis_dashboard_am - STEP_SUCCESS - Finished execution of step "V_devis_dashboard_am" in 1h53m.

@@ -1,0 +1,1020 @@
+[32m2026-02-20 18:03:55 +0000[0m - dagster - [34mDEBUG[0m - equipment_dashboard_job - 01139b63-a8ed-4e16-b1be-7448bfd74d95 - 1655998 - LOGS_CAPTURED - Started capturing logs in process (pid: 1655998).
+[32m2026-02-20 18:03:55 +0000[0m - dagster - [34mDEBUG[0m - equipment_dashboard_job - 01139b63-a8ed-4e16-b1be-7448bfd74d95 - 1655998 - V_Equipment - STEP_START - Started execution of step "V_Equipment".
+2026-02-20 18:04:18,903|[WARNING]|1655998|137668234036928|dlt|helpers.py|table_rows:534|Resource columns ['eqcat_part_sales_previous_12m', 'eqcat_labor_sales_previous_12m', 'eqcat_total_sales_previous_12m', 'eqcat_part_opportunity_previous_12m', 'eqcat_labor_opportunity_previous_12m', 'eqcat_total_opportunity_previous_12m', 'eqcat_part_opportunity_future_12m', 'eqcat_labor_opportunity_future_12m', 'eqcat_total_opportunity_future_12m', 'eqcat_boost_previous_12m', 'eqcat_base_previous_12_m', 'eqcat_base_future_12_m', 'op_cat_labor_hours', 'op_cat_labor_value', 'op_cat_base', 'op_cat_total_value', 'op_cat_confidence_index_pctg'] for table 'V_Equipment' do not match any reflected source columns and will be ignored. Note: source column names are not normalized at this stage. Use the original database column names in apply_hints.
+2026-02-20 18:34:44,081|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_part_sales_previous_12m got normalized into eqcat_part_sales_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,088|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_labor_sales_previous_12m got normalized into eqcat_labor_sales_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,088|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_total_sales_previous_12m got normalized into eqcat_total_sales_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,088|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_part_opportunity_previous_12m got normalized into eqcat_part_opportunity_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,088|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_labor_opportunity_previous_12m got normalized into eqcat_labor_opportunity_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,088|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_total_opportunity_previous_12m got normalized into eqcat_total_opportunity_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,088|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_part_opportunity_future_12m got normalized into eqcat_part_opportunity_future_12m which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,088|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_labor_opportunity_future_12m got normalized into eqcat_labor_opportunity_future_12m which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,088|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_total_opportunity_future_12m got normalized into eqcat_total_opportunity_future_12m which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,089|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_boost_previous_12m got normalized into eqcat_boost_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,089|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_base_previous_12_m got normalized into eqcat_base_previous_12_m which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,090|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_base_future_12_m got normalized into eqcat_base_future_12_m which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,090|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column op_cat_labor_hours got normalized into op_cat_labor_hours which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,090|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column op_cat_labor_value got normalized into op_cat_labor_value which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,090|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column op_cat_base got normalized into op_cat_base which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,090|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column op_cat_total_value got normalized into op_cat_total_value which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,090|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column op_cat_confidence_index_pctg got normalized into op_cat_confidence_index_pctg which collides with other column. Both columns got merged into one.
+2026-02-20 18:34:44,094|[WARNING]|1655998|137670486708352|dlt|extractors.py|_compute_tables:538|In resource: V_Equipment, when merging arrow schema with dlt schema, several column hints were different. dlt schema hints were kept and arrow schema and data were unmodified. It is up to destination to coerce the differences when loading. Change log level to INFO for more details.
+2026-02-20 19:04:26,023|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_part_sales_previous_12m got normalized into eqcat_part_sales_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,027|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_labor_sales_previous_12m got normalized into eqcat_labor_sales_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,027|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_total_sales_previous_12m got normalized into eqcat_total_sales_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_part_opportunity_previous_12m got normalized into eqcat_part_opportunity_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_labor_opportunity_previous_12m got normalized into eqcat_labor_opportunity_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_total_opportunity_previous_12m got normalized into eqcat_total_opportunity_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_part_opportunity_future_12m got normalized into eqcat_part_opportunity_future_12m which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_labor_opportunity_future_12m got normalized into eqcat_labor_opportunity_future_12m which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_total_opportunity_future_12m got normalized into eqcat_total_opportunity_future_12m which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_boost_previous_12m got normalized into eqcat_boost_previous_12m which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_base_previous_12_m got normalized into eqcat_base_previous_12_m which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column eqcat_base_future_12_m got normalized into eqcat_base_future_12_m which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column op_cat_labor_hours got normalized into op_cat_labor_hours which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column op_cat_labor_value got normalized into op_cat_labor_value which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column op_cat_base got normalized into op_cat_base which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,028|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column op_cat_total_value got normalized into op_cat_total_value which collides with other column. Both columns got merged into one.
+2026-02-20 19:04:26,029|[WARNING]|1655998|137670486708352|dlt|utils.py|normalize_table_identifiers:713|In schema snake_case_ci_255 column op_cat_confidence_index_pctg got normalized into op_cat_confidence_index_pctg which collides with other column. Both columns got merged into one.
+[32m2026-02-20 19:04:34 +0000[0m - dagster - [34mERROR[0m - [31mequipment_dashboard_job - 01139b63-a8ed-4e16-b1be-7448bfd74d95 - V_Equipment - ❌ Equipment asset failed: Pipeline execution failed at `step=extract` when processing package with `load_id=1771610658.891362` with exception:
+
+<class 'ValueError'>
+Table schema does not match schema used to create file: 
+table:
+eqcat_sk: int64 not null
+tpsd_sk: int64 not null
+eqcat_equr_sk: int64 not null
+eqcat_tie_sk: int64 not null
+flag_12r: int64 not null
+date_retour_cat: timestamp[us, tz=UTC]
+semaine_retour: string
+annee_semaine_retour: string
+mois_retour: string not null
+annee_mois_retour: string
+trimestre_retour: string not null
+annee_trimestreq_retour: string
+num_mois_trimestre_retour: int64
+semestre_retour: string not null
+annee_retour: string
+eqcat_serial_no: string not null
+eqcat_serial_no_prefix: string
+eqcat_cosntructeur: string not null
+eqcat_manufacturer_code: string
+eqcat_product_family: string
+eqcat_product_family_abbreviation: string
+eqcat_model: string
+eqcat_engine_arrangement: string
+eqcat_customer_number: string
+eqcat_ra: string
+eqcat_customer_name: string
+eqcat_parent_customer_number: string
+eqcat_parent_customer_name: string
+eqcat_division: string
+eqcat_industry_vertical: string
+eqcat_industry: string
+eqcat_sales_rep_number: string
+eqcat_sales_rep_name: string
+eqcat_sales_rep_type: string
+eqcat_product_support_segmentation: string
+eqcat_principle_work_code_description: string
+eqcat_application_code_description: string
+eqcat_territory_indicator: string
+eqcat_current_equipment: string
+eqcat_current_activity_indicator: string
+eqcat_parked_status: string
+date_parked_smu: timestamp[us, tz=UTC]
+semaine_parked_smu: string
+annee_semaine_parked_smu: string
+mois_texte_parked_smu: string not null
+annee_mois_parked_smu: string
+trimestre_parked_smu: string not null
+annee_trimestreq_parked_smu: string
+num_mois_trimestre_parked_smu: int64
+semestre_parked_smu: string not null
+annee_parked_smu: string
+eqcat_parking_dealer_region: string
+eqcat_utilization_rate: double
+eqcat_smu_type: string
+eqcat_utilization_type: string
+eqcat_smu: int64
+eqcat_last_reported_smu: int64
+in_service_date: timestamp[us, tz=UTC]
+in_service_semaine: string
+in_service_annee_semaine: string
+in_service_mois: string not null
+in_service_annee_mois: string
+in_service_trimestre: string not null
+in_service_annee_trimestreq: string
+tps_num_mois_trimestre: int64
+tps_semestre_texte: string not null
+tps_annee_texte: string
+date_last_reported_smu: timestamp[us, tz=UTC]
+semaine_last_reported_smu: string
+annee_semaine_last_reported_smu: string
+mois_last_reported_smu: string not null
+annee_mois_last_reported_smu: string
+trimestre_last_reported_smu: string not null
+annee_trimestreq_last_reported_smu: string
+num_mois_trimestre_last_reported_smu: int64
+semestre_last_reported_smu: string not null
+annee_last_reported_smu: string
+datelast_invoice_date: timestamp[us, tz=UTC]
+semaine_last_invoice_date: string
+annee_semaine_last_invoice_date: string
+mois_last_invoice_date: string not null
+annee_mois_last_invoice_date: string
+trimestre_last_invoice_date: string not null
+annee_trimestreq_last_invoice_date: string
+num_mois_trimestre_last_invoice_date: int64
+semestre_last_invoice_date: string not null
+annee_last_invoice_date: string
+eqcat_contract: string
+eqcat_duplicate_serial_no: string
+eqcat_duplicate_dealer_region: string
+eqcat_calculation_error_message: string
+eqcat_code_devise: string not null
+eqcat_part_sales_previous_12m: decimal128(11, 6)
+eqcat_labor_sales_previous_12m: decimal128(12, 6)
+eqcat_total_sales_previous_12m: decimal128(12, 6)
+eqcat_part_opportunity_previous_12m: decimal128(12, 6)
+eqcat_labor_opportunity_previous_12m: decimal128(11, 6)
+eqcat_total_opportunity_previous_12m: decimal128(12, 6)
+eqcat_part_opportunity_future_12m: decimal128(12, 6)
+eqcat_labor_opportunity_future_12m: decimal128(11, 6)
+eqcat_total_opportunity_future_12m: decimal128(12, 6)
+eqcat_tch_file_load: string
+eqcat_connected_asset: string
+eqcat_gps_location_region: string
+eqcat_dra_sk: int64 not null
+eqcat_boost_previous_12m: decimal128(9, 3)
+eqcat_product_group: string
+eqcat_product_group_code: string
+eqcat_base_previous_12_m: decimal128(12, 6)
+eqcat_base_future_12_m: decimal128(12, 6)
+eqcat_product_family_code: string
+op_cat_sk: int64
+op_cat_equr_sk: int64
+op_cat_customer_name: string
+op_cat_customer_number: string
+op_cat_tie_sk: int64
+op_cat_ra: string
+op_cat_dra_sk: int64
+op_cat_serial_number: string
+op_cat_serial_number_prefix: string
+op_cat_constructeur: string
+op_cat_ctr_sk: int64
+op_cat_model: string
+op_cat_modc_sk: int64
+op_cat_code_devise: string
+op_cat_dev_sk: int64
+op_cat_smcs_group_code_description: string
+op_cat_smcs_subgroup_code_description: string
+op_cat_component_code_description: string
+op_cat_job_code_description: string
+op_cat_last_reported_smu_date: string
+op_cat_modifier_code_description: string
+op_cat_work_app_code_description: string
+op_cat_comp_qty: int64
+op_cat_target_smu: int64
+op_cat_target_date: string
+op_cat_first_interval: int64
+op_cat_next_interval: int64
+op_cat_labor_hours: decimal128(3, 0)
+op_cat_labor_value: decimal128(4, 0)
+op_cat_base: decimal128(6, 0)
+op_cat_total_value: decimal128(6, 0)
+op_cat_lead_score: int64
+op_cat_confidence_index_pctg: decimal128(3, 0)
+op_cat_contract: string
+op_cat_division: string
+op_cat_tch_file_load: string
+tch_create_date: date32[day] vs. 
+file:
+eqcat_sk: int64 not null
+tpsd_sk: int64 not null
+eqcat_equr_sk: int64 not null
+eqcat_tie_sk: int64 not null
+flag_12r: int64 not null
+date_retour_cat: timestamp[us, tz=UTC]
+semaine_retour: string
+annee_semaine_retour: string
+mois_retour: string not null
+annee_mois_retour: string
+trimestre_retour: string not null
+annee_trimestreq_retour: string
+num_mois_trimestre_retour: int64
+semestre_retour: string not null
+annee_retour: string
+eqcat_serial_no: string not null
+eqcat_serial_no_prefix: string
+eqcat_cosntructeur: string not null
+eqcat_manufacturer_code: string
+eqcat_product_family: string
+eqcat_product_family_abbreviation: string
+eqcat_model: string
+eqcat_engine_arrangement: string
+eqcat_customer_number: string
+eqcat_ra: string
+eqcat_customer_name: string
+eqcat_parent_customer_number: string
+eqcat_parent_customer_name: string
+eqcat_division: string
+eqcat_industry_vertical: string
+eqcat_industry: string
+eqcat_sales_rep_number: string
+eqcat_sales_rep_name: string
+eqcat_sales_rep_type: string
+eqcat_product_support_segmentation: string
+eqcat_principle_work_code_description: string
+eqcat_application_code_description: string
+eqcat_territory_indicator: string
+eqcat_current_equipment: string
+eqcat_current_activity_indicator: string
+eqcat_parked_status: string
+date_parked_smu: timestamp[us, tz=UTC]
+semaine_parked_smu: string
+annee_semaine_parked_smu: string
+mois_texte_parked_smu: string not null
+annee_mois_parked_smu: string
+trimestre_parked_smu: string not null
+annee_trimestreq_parked_smu: string
+num_mois_trimestre_parked_smu: int64
+semestre_parked_smu: string not null
+annee_parked_smu: string
+eqcat_parking_dealer_region: string
+eqcat_utilization_rate: double
+eqcat_smu_type: string
+eqcat_utilization_type: string
+eqcat_smu: int64
+eqcat_last_reported_smu: int64
+in_service_date: timestamp[us, tz=UTC]
+in_service_semaine: string
+in_service_annee_semaine: string
+in_service_mois: string not null
+in_service_annee_mois: string
+in_service_trimestre: string not null
+in_service_annee_trimestreq: string
+tps_num_mois_trimestre: int64
+tps_semestre_texte: string not null
+tps_annee_texte: string
+date_last_reported_smu: timestamp[us, tz=UTC]
+semaine_last_reported_smu: string
+annee_semaine_last_reported_smu: string
+mois_last_reported_smu: string not null
+annee_mois_last_reported_smu: string
+trimestre_last_reported_smu: string not null
+annee_trimestreq_last_reported_smu: string
+num_mois_trimestre_last_reported_smu: int64
+semestre_last_reported_smu: string not null
+annee_last_reported_smu: string
+datelast_invoice_date: timestamp[us, tz=UTC]
+semaine_last_invoice_date: string
+annee_semaine_last_invoice_date: string
+mois_last_invoice_date: string not null
+annee_mois_last_invoice_date: string
+trimestre_last_invoice_date: string not null
+annee_trimestreq_last_invoice_date: string
+num_mois_trimestre_last_invoice_date: int64
+semestre_last_invoice_date: string not null
+annee_last_invoice_date: string
+eqcat_contract: string
+eqcat_duplicate_serial_no: string
+eqcat_duplicate_dealer_region: string
+eqcat_calculation_error_message: string
+eqcat_code_devise: string not null
+eqcat_part_sales_previous_12m: decimal128(12, 6)
+eqcat_labor_sales_previous_12m: decimal128(12, 6)
+eqcat_total_sales_previous_12m: decimal128(12, 6)
+eqcat_part_opportunity_previous_12m: decimal128(12, 6)
+eqcat_labor_opportunity_previous_12m: decimal128(11, 6)
+eqcat_total_opportunity_previous_12m: decimal128(12, 6)
+eqcat_part_opportunity_future_12m: decimal128(12, 6)
+eqcat_labor_opportunity_future_12m: decimal128(11, 6)
+eqcat_total_opportunity_future_12m: decimal128(12, 6)
+eqcat_tch_file_load: string
+eqcat_connected_asset: string
+eqcat_gps_location_region: string
+eqcat_dra_sk: int64 not null
+eqcat_boost_previous_12m: decimal128(9, 3)
+eqcat_product_group: string
+eqcat_product_group_code: string
+eqcat_base_previous_12_m: decimal128(12, 6)
+eqcat_base_future_12_m: decimal128(12, 6)
+eqcat_product_family_code: string
+op_cat_sk: int64
+op_cat_equr_sk: int64
+op_cat_customer_name: string
+op_cat_customer_number: string
+op_cat_tie_sk: int64
+op_cat_ra: string
+op_cat_dra_sk: int64
+op_cat_serial_number: string
+op_cat_serial_number_prefix: string
+op_cat_constructeur: string
+op_cat_ctr_sk: int64
+op_cat_model: string
+op_cat_modc_sk: int64
+op_cat_code_devise: string
+op_cat_dev_sk: int64
+op_cat_smcs_group_code_description: string
+op_cat_smcs_subgroup_code_description: string
+op_cat_component_code_description: string
+op_cat_job_code_description: string
+op_cat_last_reported_smu_date: string
+op_cat_modifier_code_description: string
+op_cat_work_app_code_description: string
+op_cat_comp_qty: int64
+op_cat_target_smu: int64
+op_cat_target_date: string
+op_cat_first_interval: int64
+op_cat_next_interval: int64
+op_cat_labor_hours: decimal128(3, 0)
+op_cat_labor_value: decimal128(4, 0)
+op_cat_base: decimal128(6, 0)
+op_cat_total_value: decimal128(6, 0)
+op_cat_lead_score: int64
+op_cat_confidence_index_pctg: decimal128(3, 0)
+op_cat_contract: string
+op_cat_division: string
+op_cat_tch_file_load: string
+tch_create_date: date32[day][0m
+[32m2026-02-20 19:04:34 +0000[0m - dagster - [34mERROR[0m - [31mequipment_dashboard_job - 01139b63-a8ed-4e16-b1be-7448bfd74d95 - 1655998 - V_Equipment - STEP_FAILURE - Execution of step "V_Equipment" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "V_Equipment"::
+
+dlt.pipeline.exceptions.PipelineStepFailed: Pipeline execution failed at `step=extract` when processing package with `load_id=1771610658.891362` with exception:
+
+<class 'ValueError'>
+Table schema does not match schema used to create file: 
+table:
+eqcat_sk: int64 not null
+tpsd_sk: int64 not null
+eqcat_equr_sk: int64 not null
+eqcat_tie_sk: int64 not null
+flag_12r: int64 not null
+date_retour_cat: timestamp[us, tz=UTC]
+semaine_retour: string
+annee_semaine_retour: string
+mois_retour: string not null
+annee_mois_retour: string
+trimestre_retour: string not null
+annee_trimestreq_retour: string
+num_mois_trimestre_retour: int64
+semestre_retour: string not null
+annee_retour: string
+eqcat_serial_no: string not null
+eqcat_serial_no_prefix: string
+eqcat_cosntructeur: string not null
+eqcat_manufacturer_code: string
+eqcat_product_family: string
+eqcat_product_family_abbreviation: string
+eqcat_model: string
+eqcat_engine_arrangement: string
+eqcat_customer_number: string
+eqcat_ra: string
+eqcat_customer_name: string
+eqcat_parent_customer_number: string
+eqcat_parent_customer_name: string
+eqcat_division: string
+eqcat_industry_vertical: string
+eqcat_industry: string
+eqcat_sales_rep_number: string
+eqcat_sales_rep_name: string
+eqcat_sales_rep_type: string
+eqcat_product_support_segmentation: string
+eqcat_principle_work_code_description: string
+eqcat_application_code_description: string
+eqcat_territory_indicator: string
+eqcat_current_equipment: string
+eqcat_current_activity_indicator: string
+eqcat_parked_status: string
+date_parked_smu: timestamp[us, tz=UTC]
+semaine_parked_smu: string
+annee_semaine_parked_smu: string
+mois_texte_parked_smu: string not null
+annee_mois_parked_smu: string
+trimestre_parked_smu: string not null
+annee_trimestreq_parked_smu: string
+num_mois_trimestre_parked_smu: int64
+semestre_parked_smu: string not null
+annee_parked_smu: string
+eqcat_parking_dealer_region: string
+eqcat_utilization_rate: double
+eqcat_smu_type: string
+eqcat_utilization_type: string
+eqcat_smu: int64
+eqcat_last_reported_smu: int64
+in_service_date: timestamp[us, tz=UTC]
+in_service_semaine: string
+in_service_annee_semaine: string
+in_service_mois: string not null
+in_service_annee_mois: string
+in_service_trimestre: string not null
+in_service_annee_trimestreq: string
+tps_num_mois_trimestre: int64
+tps_semestre_texte: string not null
+tps_annee_texte: string
+date_last_reported_smu: timestamp[us, tz=UTC]
+semaine_last_reported_smu: string
+annee_semaine_last_reported_smu: string
+mois_last_reported_smu: string not null
+annee_mois_last_reported_smu: string
+trimestre_last_reported_smu: string not null
+annee_trimestreq_last_reported_smu: string
+num_mois_trimestre_last_reported_smu: int64
+semestre_last_reported_smu: string not null
+annee_last_reported_smu: string
+datelast_invoice_date: timestamp[us, tz=UTC]
+semaine_last_invoice_date: string
+annee_semaine_last_invoice_date: string
+mois_last_invoice_date: string not null
+annee_mois_last_invoice_date: string
+trimestre_last_invoice_date: string not null
+annee_trimestreq_last_invoice_date: string
+num_mois_trimestre_last_invoice_date: int64
+semestre_last_invoice_date: string not null
+annee_last_invoice_date: string
+eqcat_contract: string
+eqcat_duplicate_serial_no: string
+eqcat_duplicate_dealer_region: string
+eqcat_calculation_error_message: string
+eqcat_code_devise: string not null
+eqcat_part_sales_previous_12m: decimal128(11, 6)
+eqcat_labor_sales_previous_12m: decimal128(12, 6)
+eqcat_total_sales_previous_12m: decimal128(12, 6)
+eqcat_part_opportunity_previous_12m: decimal128(12, 6)
+eqcat_labor_opportunity_previous_12m: decimal128(11, 6)
+eqcat_total_opportunity_previous_12m: decimal128(12, 6)
+eqcat_part_opportunity_future_12m: decimal128(12, 6)
+eqcat_labor_opportunity_future_12m: decimal128(11, 6)
+eqcat_total_opportunity_future_12m: decimal128(12, 6)
+eqcat_tch_file_load: string
+eqcat_connected_asset: string
+eqcat_gps_location_region: string
+eqcat_dra_sk: int64 not null
+eqcat_boost_previous_12m: decimal128(9, 3)
+eqcat_product_group: string
+eqcat_product_group_code: string
+eqcat_base_previous_12_m: decimal128(12, 6)
+eqcat_base_future_12_m: decimal128(12, 6)
+eqcat_product_family_code: string
+op_cat_sk: int64
+op_cat_equr_sk: int64
+op_cat_customer_name: string
+op_cat_customer_number: string
+op_cat_tie_sk: int64
+op_cat_ra: string
+op_cat_dra_sk: int64
+op_cat_serial_number: string
+op_cat_serial_number_prefix: string
+op_cat_constructeur: string
+op_cat_ctr_sk: int64
+op_cat_model: string
+op_cat_modc_sk: int64
+op_cat_code_devise: string
+op_cat_dev_sk: int64
+op_cat_smcs_group_code_description: string
+op_cat_smcs_subgroup_code_description: string
+op_cat_component_code_description: string
+op_cat_job_code_description: string
+op_cat_last_reported_smu_date: string
+op_cat_modifier_code_description: string
+op_cat_work_app_code_description: string
+op_cat_comp_qty: int64
+op_cat_target_smu: int64
+op_cat_target_date: string
+op_cat_first_interval: int64
+op_cat_next_interval: int64
+op_cat_labor_hours: decimal128(3, 0)
+op_cat_labor_value: decimal128(4, 0)
+op_cat_base: decimal128(6, 0)
+op_cat_total_value: decimal128(6, 0)
+op_cat_lead_score: int64
+op_cat_confidence_index_pctg: decimal128(3, 0)
+op_cat_contract: string
+op_cat_division: string
+op_cat_tch_file_load: string
+tch_create_date: date32[day] vs. 
+file:
+eqcat_sk: int64 not null
+tpsd_sk: int64 not null
+eqcat_equr_sk: int64 not null
+eqcat_tie_sk: int64 not null
+flag_12r: int64 not null
+date_retour_cat: timestamp[us, tz=UTC]
+semaine_retour: string
+annee_semaine_retour: string
+mois_retour: string not null
+annee_mois_retour: string
+trimestre_retour: string not null
+annee_trimestreq_retour: string
+num_mois_trimestre_retour: int64
+semestre_retour: string not null
+annee_retour: string
+eqcat_serial_no: string not null
+eqcat_serial_no_prefix: string
+eqcat_cosntructeur: string not null
+eqcat_manufacturer_code: string
+eqcat_product_family: string
+eqcat_product_family_abbreviation: string
+eqcat_model: string
+eqcat_engine_arrangement: string
+eqcat_customer_number: string
+eqcat_ra: string
+eqcat_customer_name: string
+eqcat_parent_customer_number: string
+eqcat_parent_customer_name: string
+eqcat_division: string
+eqcat_industry_vertical: string
+eqcat_industry: string
+eqcat_sales_rep_number: string
+eqcat_sales_rep_name: string
+eqcat_sales_rep_type: string
+eqcat_product_support_segmentation: string
+eqcat_principle_work_code_description: string
+eqcat_application_code_description: string
+eqcat_territory_indicator: string
+eqcat_current_equipment: string
+eqcat_current_activity_indicator: string
+eqcat_parked_status: string
+date_parked_smu: timestamp[us, tz=UTC]
+semaine_parked_smu: string
+annee_semaine_parked_smu: string
+mois_texte_parked_smu: string not null
+annee_mois_parked_smu: string
+trimestre_parked_smu: string not null
+annee_trimestreq_parked_smu: string
+num_mois_trimestre_parked_smu: int64
+semestre_parked_smu: string not null
+annee_parked_smu: string
+eqcat_parking_dealer_region: string
+eqcat_utilization_rate: double
+eqcat_smu_type: string
+eqcat_utilization_type: string
+eqcat_smu: int64
+eqcat_last_reported_smu: int64
+in_service_date: timestamp[us, tz=UTC]
+in_service_semaine: string
+in_service_annee_semaine: string
+in_service_mois: string not null
+in_service_annee_mois: string
+in_service_trimestre: string not null
+in_service_annee_trimestreq: string
+tps_num_mois_trimestre: int64
+tps_semestre_texte: string not null
+tps_annee_texte: string
+date_last_reported_smu: timestamp[us, tz=UTC]
+semaine_last_reported_smu: string
+annee_semaine_last_reported_smu: string
+mois_last_reported_smu: string not null
+annee_mois_last_reported_smu: string
+trimestre_last_reported_smu: string not null
+annee_trimestreq_last_reported_smu: string
+num_mois_trimestre_last_reported_smu: int64
+semestre_last_reported_smu: string not null
+annee_last_reported_smu: string
+datelast_invoice_date: timestamp[us, tz=UTC]
+semaine_last_invoice_date: string
+annee_semaine_last_invoice_date: string
+mois_last_invoice_date: string not null
+annee_mois_last_invoice_date: string
+trimestre_last_invoice_date: string not null
+annee_trimestreq_last_invoice_date: string
+num_mois_trimestre_last_invoice_date: int64
+semestre_last_invoice_date: string not null
+annee_last_invoice_date: string
+eqcat_contract: string
+eqcat_duplicate_serial_no: string
+eqcat_duplicate_dealer_region: string
+eqcat_calculation_error_message: string
+eqcat_code_devise: string not null
+eqcat_part_sales_previous_12m: decimal128(12, 6)
+eqcat_labor_sales_previous_12m: decimal128(12, 6)
+eqcat_total_sales_previous_12m: decimal128(12, 6)
+eqcat_part_opportunity_previous_12m: decimal128(12, 6)
+eqcat_labor_opportunity_previous_12m: decimal128(11, 6)
+eqcat_total_opportunity_previous_12m: decimal128(12, 6)
+eqcat_part_opportunity_future_12m: decimal128(12, 6)
+eqcat_labor_opportunity_future_12m: decimal128(11, 6)
+eqcat_total_opportunity_future_12m: decimal128(12, 6)
+eqcat_tch_file_load: string
+eqcat_connected_asset: string
+eqcat_gps_location_region: string
+eqcat_dra_sk: int64 not null
+eqcat_boost_previous_12m: decimal128(9, 3)
+eqcat_product_group: string
+eqcat_product_group_code: string
+eqcat_base_previous_12_m: decimal128(12, 6)
+eqcat_base_future_12_m: decimal128(12, 6)
+eqcat_product_family_code: string
+op_cat_sk: int64
+op_cat_equr_sk: int64
+op_cat_customer_name: string
+op_cat_customer_number: string
+op_cat_tie_sk: int64
+op_cat_ra: string
+op_cat_dra_sk: int64
+op_cat_serial_number: string
+op_cat_serial_number_prefix: string
+op_cat_constructeur: string
+op_cat_ctr_sk: int64
+op_cat_model: string
+op_cat_modc_sk: int64
+op_cat_code_devise: string
+op_cat_dev_sk: int64
+op_cat_smcs_group_code_description: string
+op_cat_smcs_subgroup_code_description: string
+op_cat_component_code_description: string
+op_cat_job_code_description: string
+op_cat_last_reported_smu_date: string
+op_cat_modifier_code_description: string
+op_cat_work_app_code_description: string
+op_cat_comp_qty: int64
+op_cat_target_smu: int64
+op_cat_target_date: string
+op_cat_first_interval: int64
+op_cat_next_interval: int64
+op_cat_labor_hours: decimal128(3, 0)
+op_cat_labor_value: decimal128(4, 0)
+op_cat_base: decimal128(6, 0)
+op_cat_total_value: decimal128(6, 0)
+op_cat_lead_score: int64
+op_cat_confidence_index_pctg: decimal128(3, 0)
+op_cat_contract: string
+op_cat_division: string
+op_cat_tch_file_load: string
+tch_create_date: date32[day]
+
+Stack Trace:
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dagster/_core/execution/plan/utils.py", line 57, in op_execution_error_boundary
+    yield
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dagster/_utils/__init__.py", line 394, in iterate_with_context
+    next_output = next(iterator)
+                  ^^^^^^^^^^^^^^
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/src/mssql_data_nmbai/defs/assets.py", line 33, in equipment_dashboard_assets
+    yield from dlt.run(context=context)
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dagster_dlt/dlt_event_iterator.py", line 77, in __next__
+    return next(self._inner_iterator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dagster_dlt/resource.py", line 284, in _run
+    load_info = dlt_pipeline.run(dlt_source, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 224, in _wrap
+    step_info = f(self, *args, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 272, in _wrap
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 748, in run
+    self.extract(
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 224, in _wrap
+    step_info = f(self, *args, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 178, in _wrap
+    rv = f(self, *args, **kwargs)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 164, in _wrap
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 272, in _wrap
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 507, in extract
+    raise PipelineStepFailed(
+
+The above exception was caused by the following exception:
+ValueError: Table schema does not match schema used to create file: 
+table:
+eqcat_sk: int64 not null
+tpsd_sk: int64 not null
+eqcat_equr_sk: int64 not null
+eqcat_tie_sk: int64 not null
+flag_12r: int64 not null
+date_retour_cat: timestamp[us, tz=UTC]
+semaine_retour: string
+annee_semaine_retour: string
+mois_retour: string not null
+annee_mois_retour: string
+trimestre_retour: string not null
+annee_trimestreq_retour: string
+num_mois_trimestre_retour: int64
+semestre_retour: string not null
+annee_retour: string
+eqcat_serial_no: string not null
+eqcat_serial_no_prefix: string
+eqcat_cosntructeur: string not null
+eqcat_manufacturer_code: string
+eqcat_product_family: string
+eqcat_product_family_abbreviation: string
+eqcat_model: string
+eqcat_engine_arrangement: string
+eqcat_customer_number: string
+eqcat_ra: string
+eqcat_customer_name: string
+eqcat_parent_customer_number: string
+eqcat_parent_customer_name: string
+eqcat_division: string
+eqcat_industry_vertical: string
+eqcat_industry: string
+eqcat_sales_rep_number: string
+eqcat_sales_rep_name: string
+eqcat_sales_rep_type: string
+eqcat_product_support_segmentation: string
+eqcat_principle_work_code_description: string
+eqcat_application_code_description: string
+eqcat_territory_indicator: string
+eqcat_current_equipment: string
+eqcat_current_activity_indicator: string
+eqcat_parked_status: string
+date_parked_smu: timestamp[us, tz=UTC]
+semaine_parked_smu: string
+annee_semaine_parked_smu: string
+mois_texte_parked_smu: string not null
+annee_mois_parked_smu: string
+trimestre_parked_smu: string not null
+annee_trimestreq_parked_smu: string
+num_mois_trimestre_parked_smu: int64
+semestre_parked_smu: string not null
+annee_parked_smu: string
+eqcat_parking_dealer_region: string
+eqcat_utilization_rate: double
+eqcat_smu_type: string
+eqcat_utilization_type: string
+eqcat_smu: int64
+eqcat_last_reported_smu: int64
+in_service_date: timestamp[us, tz=UTC]
+in_service_semaine: string
+in_service_annee_semaine: string
+in_service_mois: string not null
+in_service_annee_mois: string
+in_service_trimestre: string not null
+in_service_annee_trimestreq: string
+tps_num_mois_trimestre: int64
+tps_semestre_texte: string not null
+tps_annee_texte: string
+date_last_reported_smu: timestamp[us, tz=UTC]
+semaine_last_reported_smu: string
+annee_semaine_last_reported_smu: string
+mois_last_reported_smu: string not null
+annee_mois_last_reported_smu: string
+trimestre_last_reported_smu: string not null
+annee_trimestreq_last_reported_smu: string
+num_mois_trimestre_last_reported_smu: int64
+semestre_last_reported_smu: string not null
+annee_last_reported_smu: string
+datelast_invoice_date: timestamp[us, tz=UTC]
+semaine_last_invoice_date: string
+annee_semaine_last_invoice_date: string
+mois_last_invoice_date: string not null
+annee_mois_last_invoice_date: string
+trimestre_last_invoice_date: string not null
+annee_trimestreq_last_invoice_date: string
+num_mois_trimestre_last_invoice_date: int64
+semestre_last_invoice_date: string not null
+annee_last_invoice_date: string
+eqcat_contract: string
+eqcat_duplicate_serial_no: string
+eqcat_duplicate_dealer_region: string
+eqcat_calculation_error_message: string
+eqcat_code_devise: string not null
+eqcat_part_sales_previous_12m: decimal128(11, 6)
+eqcat_labor_sales_previous_12m: decimal128(12, 6)
+eqcat_total_sales_previous_12m: decimal128(12, 6)
+eqcat_part_opportunity_previous_12m: decimal128(12, 6)
+eqcat_labor_opportunity_previous_12m: decimal128(11, 6)
+eqcat_total_opportunity_previous_12m: decimal128(12, 6)
+eqcat_part_opportunity_future_12m: decimal128(12, 6)
+eqcat_labor_opportunity_future_12m: decimal128(11, 6)
+eqcat_total_opportunity_future_12m: decimal128(12, 6)
+eqcat_tch_file_load: string
+eqcat_connected_asset: string
+eqcat_gps_location_region: string
+eqcat_dra_sk: int64 not null
+eqcat_boost_previous_12m: decimal128(9, 3)
+eqcat_product_group: string
+eqcat_product_group_code: string
+eqcat_base_previous_12_m: decimal128(12, 6)
+eqcat_base_future_12_m: decimal128(12, 6)
+eqcat_product_family_code: string
+op_cat_sk: int64
+op_cat_equr_sk: int64
+op_cat_customer_name: string
+op_cat_customer_number: string
+op_cat_tie_sk: int64
+op_cat_ra: string
+op_cat_dra_sk: int64
+op_cat_serial_number: string
+op_cat_serial_number_prefix: string
+op_cat_constructeur: string
+op_cat_ctr_sk: int64
+op_cat_model: string
+op_cat_modc_sk: int64
+op_cat_code_devise: string
+op_cat_dev_sk: int64
+op_cat_smcs_group_code_description: string
+op_cat_smcs_subgroup_code_description: string
+op_cat_component_code_description: string
+op_cat_job_code_description: string
+op_cat_last_reported_smu_date: string
+op_cat_modifier_code_description: string
+op_cat_work_app_code_description: string
+op_cat_comp_qty: int64
+op_cat_target_smu: int64
+op_cat_target_date: string
+op_cat_first_interval: int64
+op_cat_next_interval: int64
+op_cat_labor_hours: decimal128(3, 0)
+op_cat_labor_value: decimal128(4, 0)
+op_cat_base: decimal128(6, 0)
+op_cat_total_value: decimal128(6, 0)
+op_cat_lead_score: int64
+op_cat_confidence_index_pctg: decimal128(3, 0)
+op_cat_contract: string
+op_cat_division: string
+op_cat_tch_file_load: string
+tch_create_date: date32[day] vs. 
+file:
+eqcat_sk: int64 not null
+tpsd_sk: int64 not null
+eqcat_equr_sk: int64 not null
+eqcat_tie_sk: int64 not null
+flag_12r: int64 not null
+date_retour_cat: timestamp[us, tz=UTC]
+semaine_retour: string
+annee_semaine_retour: string
+mois_retour: string not null
+annee_mois_retour: string
+trimestre_retour: string not null
+annee_trimestreq_retour: string
+num_mois_trimestre_retour: int64
+semestre_retour: string not null
+annee_retour: string
+eqcat_serial_no: string not null
+eqcat_serial_no_prefix: string
+eqcat_cosntructeur: string not null
+eqcat_manufacturer_code: string
+eqcat_product_family: string
+eqcat_product_family_abbreviation: string
+eqcat_model: string
+eqcat_engine_arrangement: string
+eqcat_customer_number: string
+eqcat_ra: string
+eqcat_customer_name: string
+eqcat_parent_customer_number: string
+eqcat_parent_customer_name: string
+eqcat_division: string
+eqcat_industry_vertical: string
+eqcat_industry: string
+eqcat_sales_rep_number: string
+eqcat_sales_rep_name: string
+eqcat_sales_rep_type: string
+eqcat_product_support_segmentation: string
+eqcat_principle_work_code_description: string
+eqcat_application_code_description: string
+eqcat_territory_indicator: string
+eqcat_current_equipment: string
+eqcat_current_activity_indicator: string
+eqcat_parked_status: string
+date_parked_smu: timestamp[us, tz=UTC]
+semaine_parked_smu: string
+annee_semaine_parked_smu: string
+mois_texte_parked_smu: string not null
+annee_mois_parked_smu: string
+trimestre_parked_smu: string not null
+annee_trimestreq_parked_smu: string
+num_mois_trimestre_parked_smu: int64
+semestre_parked_smu: string not null
+annee_parked_smu: string
+eqcat_parking_dealer_region: string
+eqcat_utilization_rate: double
+eqcat_smu_type: string
+eqcat_utilization_type: string
+eqcat_smu: int64
+eqcat_last_reported_smu: int64
+in_service_date: timestamp[us, tz=UTC]
+in_service_semaine: string
+in_service_annee_semaine: string
+in_service_mois: string not null
+in_service_annee_mois: string
+in_service_trimestre: string not null
+in_service_annee_trimestreq: string
+tps_num_mois_trimestre: int64
+tps_semestre_texte: string not null
+tps_annee_texte: string
+date_last_reported_smu: timestamp[us, tz=UTC]
+semaine_last_reported_smu: string
+annee_semaine_last_reported_smu: string
+mois_last_reported_smu: string not null
+annee_mois_last_reported_smu: string
+trimestre_last_reported_smu: string not null
+annee_trimestreq_last_reported_smu: string
+num_mois_trimestre_last_reported_smu: int64
+semestre_last_reported_smu: string not null
+annee_last_reported_smu: string
+datelast_invoice_date: timestamp[us, tz=UTC]
+semaine_last_invoice_date: string
+annee_semaine_last_invoice_date: string
+mois_last_invoice_date: string not null
+annee_mois_last_invoice_date: string
+trimestre_last_invoice_date: string not null
+annee_trimestreq_last_invoice_date: string
+num_mois_trimestre_last_invoice_date: int64
+semestre_last_invoice_date: string not null
+annee_last_invoice_date: string
+eqcat_contract: string
+eqcat_duplicate_serial_no: string
+eqcat_duplicate_dealer_region: string
+eqcat_calculation_error_message: string
+eqcat_code_devise: string not null
+eqcat_part_sales_previous_12m: decimal128(12, 6)
+eqcat_labor_sales_previous_12m: decimal128(12, 6)
+eqcat_total_sales_previous_12m: decimal128(12, 6)
+eqcat_part_opportunity_previous_12m: decimal128(12, 6)
+eqcat_labor_opportunity_previous_12m: decimal128(11, 6)
+eqcat_total_opportunity_previous_12m: decimal128(12, 6)
+eqcat_part_opportunity_future_12m: decimal128(12, 6)
+eqcat_labor_opportunity_future_12m: decimal128(11, 6)
+eqcat_total_opportunity_future_12m: decimal128(12, 6)
+eqcat_tch_file_load: string
+eqcat_connected_asset: string
+eqcat_gps_location_region: string
+eqcat_dra_sk: int64 not null
+eqcat_boost_previous_12m: decimal128(9, 3)
+eqcat_product_group: string
+eqcat_product_group_code: string
+eqcat_base_previous_12_m: decimal128(12, 6)
+eqcat_base_future_12_m: decimal128(12, 6)
+eqcat_product_family_code: string
+op_cat_sk: int64
+op_cat_equr_sk: int64
+op_cat_customer_name: string
+op_cat_customer_number: string
+op_cat_tie_sk: int64
+op_cat_ra: string
+op_cat_dra_sk: int64
+op_cat_serial_number: string
+op_cat_serial_number_prefix: string
+op_cat_constructeur: string
+op_cat_ctr_sk: int64
+op_cat_model: string
+op_cat_modc_sk: int64
+op_cat_code_devise: string
+op_cat_dev_sk: int64
+op_cat_smcs_group_code_description: string
+op_cat_smcs_subgroup_code_description: string
+op_cat_component_code_description: string
+op_cat_job_code_description: string
+op_cat_last_reported_smu_date: string
+op_cat_modifier_code_description: string
+op_cat_work_app_code_description: string
+op_cat_comp_qty: int64
+op_cat_target_smu: int64
+op_cat_target_date: string
+op_cat_first_interval: int64
+op_cat_next_interval: int64
+op_cat_labor_hours: decimal128(3, 0)
+op_cat_labor_value: decimal128(4, 0)
+op_cat_base: decimal128(6, 0)
+op_cat_total_value: decimal128(6, 0)
+op_cat_lead_score: int64
+op_cat_confidence_index_pctg: decimal128(3, 0)
+op_cat_contract: string
+op_cat_division: string
+op_cat_tch_file_load: string
+tch_create_date: date32[day]
+
+Stack Trace:
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 484, in extract
+    self._extract_source(
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/pipeline/pipeline.py", line 1345, in _extract_source
+    load_id = extract.extract(
+              ^^^^^^^^^^^^^^^^
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/extract/extract.py", line 487, in extract
+    self._extract_single_source(
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/extract/extract.py", line 417, in _extract_single_source
+    extractors[item_format].write_items(
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/extract/extractors.py", line 396, in write_items
+    super().write_items(resource, items, meta)
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/extract/extractors.py", line 153, in write_items
+    self._write_to_static_table(resource, table_name, items, meta)
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/extract/extractors.py", line 403, in _write_to_static_table
+    super()._write_to_static_table(resource, table_name, items, meta)
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/extract/extractors.py", line 238, in _write_to_static_table
+    self._write_item(table_name, resource.name, items)
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/extract/extractors.py", line 472, in _write_item
+    super()._write_item(table_name, resource_name, items, columns)
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/extract/extractors.py", line 180, in _write_item
+    new_rows_count = self.item_storage.write_data_item(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/common/storages/data_item_storage.py", line 48, in write_data_item
+    return writer.write_data_item(item, columns)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/common/data_writers/buffered.py", line 116, in write_data_item
+    self._flush_items()
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/common/data_writers/buffered.py", line 255, in _flush_items
+    self._writer.write_data(items)
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/dlt/common/data_writers/writers.py", line 528, in write_data
+    self.writer.write_table(table, row_group_size=self.parquet_format.row_group_size)
+  File "/home/sarrj/project_jgs/mssql_data_nmbai/.venv/lib/python3.12/site-packages/pyarrow/parquet/core.py", line 1178, in write_table
+    raise ValueError(msg)
+[0m

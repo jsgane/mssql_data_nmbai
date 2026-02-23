@@ -8,6 +8,7 @@ from dlt.sources.sql_database import sql_database
 import urllib.parse
 import os
 from dlt.extract.resource import DltResource
+from sqlalchemy import create_engine
 
 def get_mssql_engine():
 
@@ -26,17 +27,47 @@ def get_mssql_engine():
         f"PWD={password};"
         "Encrypt=yes;"
         "TrustServerCertificate=yes;"
-        "MARS_Connection=yes;"   # allows parallel queries
-        "Packet Size=32767;"     # larger network packets
-        "Connection Timeout=60;"  # Increase timeout
-        "Command Timeout=300;"    # Increase command timeout
+        "Connection Timeout=60;"
     )
+
     conn_str_encoded = urllib.parse.quote_plus(conn_str)
 
-    engine_url = f"mssql+pyodbc:///?odbc_connect={conn_str_encoded}&arraysize=50000"
-    return engine_url
+    engine = create_engine(
+        f"mssql+pyodbc:///?odbc_connect={conn_str_encoded}",
+        pool_pre_ping=True,
+        pool_recycle=1800,
+        pool_size=5,
+        max_overflow=10,
+        connect_args={"timeout": 60},
+        fast_executemany=True,
+    )
+
+    return engine
 
 
+##### EXTRACT V_facture_dashboard_am #############
+
+@dlt.resource(
+    name="V_facture_dashboard_am",
+    write_disposition="replace",
+)
+def get_facture_data() -> DltResource:
+    
+    source_sta = sql_database(
+        get_mssql_engine(),
+        backend="pyarrow",
+        chunk_size=300_000,
+        reflection_level="minimal",
+        include_views=True,
+    )
+    resource = source_sta.V_facture_dashboard_am
+    
+    return resource.parallelize()
+
+
+@dlt.source
+def facture_source():
+    return get_facture_data
 
 ##### EXTRACT V_Equipment #############
 @dlt.resource(
@@ -61,6 +92,80 @@ def get_quipment_data() -> DltResource:
 @dlt.source
 def equipment_source():
     return get_quipment_data()
+
+##### EXTRACT V_tiers_dashboard_am #############
+
+@dlt.resource(
+    name="V_tiers_dashboard_am",
+    write_disposition="replace",
+)
+def get_tiers_data() -> DltResource:
+    
+    source_sta = sql_database(
+        get_mssql_engine(),
+        backend="pyarrow",
+        chunk_size=300_000,
+        reflection_level="minimal",
+        include_views=True,
+    )
+    resource = source_sta.V_tiers_dashboard_am
+    
+    return resource.parallelize()
+
+
+@dlt.source
+def tiers_source():
+    return get_tiers_data()
+
+##### EXTRACT GCM_Retour_Données_OLGA #############
+
+@dlt.resource(
+    name="GCM_Retour_Données_OLGA",
+    write_disposition="replace",
+)
+def get_gcm_retour_donnees_olga_data() -> DltResource:
+    
+    source_sta = sql_database(
+        get_mssql_engine(),
+        backend="pyarrow",
+        chunk_size=300_000,
+        reflection_level="minimal",
+        include_views=True,
+    )
+    resource = source_sta.GCM_Retour_Données_OLGA
+    
+    return resource.parallelize()
+
+
+@dlt.source
+def gcm_retour_donnees_olga_source():
+    return get_gcm_retour_donnees_olga_data()
+
+
+##### EXTRACT v_Inventory_Parts_Ops #############
+
+@dlt.resource(
+    name="v_Inventory_Parts_Ops",
+    write_disposition="replace",
+)
+def get_inventory_parts_ops_data() -> DltResource:
+    
+    source_sta = sql_database(
+        get_mssql_engine(),
+        backend="pyarrow",
+        chunk_size=300_000,
+        reflection_level="minimal",
+        include_views=True,
+    )
+    resource = source_sta.v_Inventory_Parts_Ops
+    
+    return resource.parallelize()
+
+
+@dlt.source
+def inventory_parts_ops_source():
+    return get_inventory_parts_ops_data()
+
 
 ##### EXTRACT V_devis_dashboard_am #############
 @dlt.resource(
@@ -125,26 +230,3 @@ def commande_source():
     return get_commande_data()
 
 
-##### EXTRACT V_facture_dashboard_am #############
-
-@dlt.resource(
-    name="V_facture_dashboard_am",
-    write_disposition="replace",
-)
-def get_facture_data() -> DltResource:
-    
-    source_sta = sql_database(
-        get_mssql_engine(),
-        backend="pyarrow",
-        chunk_size=300_000,
-        reflection_level="minimal",
-        include_views=True,
-    )
-    resource = source_sta.V_facture_dashboard_am
-    
-    return resource.parallelize()
-
-
-@dlt.source
-def facture_source():
-    return get_facture_data()

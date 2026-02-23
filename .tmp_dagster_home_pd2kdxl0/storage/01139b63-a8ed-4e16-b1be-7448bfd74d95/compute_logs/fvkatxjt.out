@@ -1,0 +1,14 @@
+--------------------------- Extract equipment_source ---------------------------
+Resources: 0/1 (0.0%) | Time: 0.00s | Rate: 0.00/s
+Memory usage: 256.39 MB (40.00%) | CPU usage: 0.00%
+
+--------------------------- Extract equipment_source ---------------------------
+Resources: 0/1 (0.0%) | Time: 1825.99s | Rate: 0.00/s
+v_equipment: 100000  | Time: 0.00s | Rate: 1487341843.97/s
+Memory usage: 1294.12 MB (53.50%) | CPU usage: 0.00%
+
+--------------------------- Extract equipment_source ---------------------------
+Resources: 0/1 (0.0%) | Time: 3615.86s | Rate: 0.00/s
+v_equipment: 100000  | Time: 1789.87s | Rate: 55.87/s
+Memory usage: 808.77 MB (47.30%) | CPU usage: 0.00%
+
