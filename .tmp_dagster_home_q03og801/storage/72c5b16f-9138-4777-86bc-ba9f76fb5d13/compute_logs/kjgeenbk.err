@@ -1,2 +1,0 @@
-[32m2026-02-23 12:53:52 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 72c5b16f-9138-4777-86bc-ba9f76fb5d13 - 395187 - LOGS_CAPTURED - Started capturing logs in process (pid: 395187).
-[32m2026-02-23 12:53:52 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 72c5b16f-9138-4777-86bc-ba9f76fb5d13 - 395187 - V_facture_dashboard_am - STEP_START - Started execution of step "V_facture_dashboard_am".

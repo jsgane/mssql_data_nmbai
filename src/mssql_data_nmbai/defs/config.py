@@ -19,13 +19,13 @@ logger = logging.getLogger(__name__)
 class Config:
     USE_WSL = os.getenv("USE_WSL", "false").lower() == "true"
     # SQL Server
-    MSSQL_SERVER = os.getenv("MSSQL_SERVER")
+    MSSQL_SERVER = os.getenv("MSSQL_SERVER", r"bodsql\bi01")
     MSSQL_DATABASE = os.getenv("MSSQL_DATABASE")
     MSSQL_USER = os.getenv("MSSQL_USER")
     MSSQL_PASSWORD = os.getenv("MSSQL_PASSWORD")
     
     # Query
-    TABLE_NAME = "dbo.VLinkLocalisation"
+    TABLE_NAME = "v_Inventory_Parts_Ops"
     QUERY = f"SELECT TOP 10000000 * FROM {TABLE_NAME} WITH (NOLOCK)"
     
     # Fichier de sortie
@@ -40,7 +40,6 @@ class Config:
     SF_DATABASE = os.getenv("SNOWFLAKE_DATABASE", "NEEMBA")
     SF_SCHEMA = os.getenv("SNOWFLAKE_SCHEMA", "EQUIPEMENT")
     SF_ROLE = os.getenv("SNOWFLAKE_ROLE", "transform")
-    SF_TABLE = "a_bronze_vlinklocalisation"
     
     # Stage et File Format
     STAGE_NAME = "MSSQL_DIRECT_STAGE"
@@ -48,6 +47,18 @@ class Config:
     
     # BCP executable path
     #BCP_PATH = r"C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\bcp.exe"
+    ###===========================================================================
+    ### # Ajouter bcp (Ubuntu/Debian)
+    ### curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+    ### curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+    ### sudo apt-get update
+    ### sudo ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
+    ### 
+    ### # Ajouter au PATH
+    ### echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+    ### source ~/.bashrc
+
+
     BCP_PATH = r"/opt/mssql-tools/bin/bcp"
 
 # ===EXPORT BCP (équivalent code PowerShell) ============
@@ -93,16 +104,32 @@ class BCPExporter:
         logger.info(f"   BCP: {self.bcp_path}")
         logger.info(f"   Serveur: {self.server}")
 
-    def export(self, query: str, output_path: Path, delimiter: str = ",") -> Tuple[bool, float, float]:
+    def export(
+        self,
+        table_name: str,
+        output_path: Path,
+        query: str = None,
+        delimiter: str = ",",
+        top_n: int = 10000000,
+    ) -> Tuple[bool, float, float]:
         """
-        Export BCP SQL Server → CSV.
+        Export BCP SQL Server → CSV à partir du nom de la table.
+        - table_name: nom complet avec schéma (ex: v_Inventory_Parts_Ops)
+        - output_path: chemin du fichier CSV
+        - delimiter: séparateur CSV
+        - top_n: nombre maximal de lignes à exporter
         Returns: Tuple (success, duration_seconds, file_size_MB)
         """
+        # Construire la requête automatiquement
+        if query == None:
+            query = f"SELECT TOP {top_n} * FROM {table_name} WITH (NOLOCK)"
+
         start = time.time()
         output_path.parent.mkdir(parents=True, exist_ok=True)
-
+        #connection_string = r"bodsql\bi01" ##self.server  # ton serveur MSSQL
+        server = self.server  # ton serveur MSSQL
+        connection_string = f"{server};Encrypt=no;TrustServerCertificate=yes"
         if self.use_wsl:
-            # WSL: convertir le chemin
             wsl_output = windows_to_wsl_path(str(output_path))
             logger.info("🐧 Mode WSL")
             logger.info(f"   Chemin Windows: {output_path}")
@@ -114,33 +141,31 @@ class BCPExporter:
                 query,
                 "queryout",
                 wsl_output,
-                "-c",
+                "-c",              # caractère standard
+                "-C", "65001",     # UTF-8
                 "-t", delimiter,
-                "-S", self.server,
+                "-r", "\\n",
+                "-S", connection_string,
                 "-d", self.database,
                 "-U", self.username,
                 "-P", self.password,
             ]
         else:
-            # Linux natif
             logger.info("💻 Mode natif")
             cmd = [
                 self.bcp_path,
                 query,
                 "queryout",
                 str(output_path),
-                "-c",
+                "-c",              # caractère standard
+                "-C", "65001",     # UTF-8
                 "-t", delimiter,
-                "-S", self.server,
+                "-r", "\\n",
+                "-S", connection_string,
                 "-d", self.database,
                 "-U", self.username,
-                "-P", self.password,
+                "-P", self.password,    
             ]
-
-        # SSL: trust server certificate si activé
-        if self.trust_server_certificate:
-            cmd.extend(["-C", "1"])  # équivalent à TrustServerCertificate=yes
-
         # Masquer le mot de passe dans les logs
         cmd_display = cmd.copy()
         if "-P" in cmd_display:
@@ -156,7 +181,9 @@ class BCPExporter:
                 logger.error(f"❌ BCP a échoué (code {result.returncode})")
                 logger.error(f"STDOUT: {result.stdout}")
                 logger.error(f"STDERR: {result.stderr}")
-                raise subprocess.CalledProcessError(result.returncode, cmd, output=result.stdout, stderr=result.stderr)
+                raise subprocess.CalledProcessError(
+                    result.returncode, cmd, output=result.stdout, stderr=result.stderr
+                )
 
             if not output_path.exists():
                 raise FileNotFoundError(f"Le fichier de sortie n'a pas été créé: {output_path}")
@@ -173,24 +200,26 @@ class BCPExporter:
         except Exception as e:
             logger.error(f"❌ Erreur inattendue: {e}")
             raise
-            
-def export_mssql_bcp():
-    """Export BCP avec support WSL"""
+
+
+def export_mssql_bcp(table_name: str, top_n: int = 10000000) -> bool:
+    """Export BCP depuis SQL Server avec support WSL."""
+    
     logger.info("=" * 80)
-    logger.info("📤 Export BCP depuis SQL Server")
+    logger.info(f"📤 Export BCP depuis SQL Server pour la table {table_name}")
     logger.info("=" * 80)
     
-    # Créer le répertoire
+    # Créer le répertoire de sortie si nécessaire
     Config.OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     
     # Supprimer le fichier existant
     if Config.OUTPUT_PATH.exists():
         Config.OUTPUT_PATH.unlink()
         logger.info(f"🗑️  Fichier existant supprimé: {Config.OUTPUT_PATH}")
-
-    # Créer l'exporter
+    
+    # Créer l'exporter BCP
     exporter = BCPExporter(
-        server=Config.MSSQL_SERVER,
+        server=f"{Config.MSSQL_SERVER}",
         database=Config.MSSQL_DATABASE,
         username=Config.MSSQL_USER,
         password=Config.MSSQL_PASSWORD,
@@ -198,90 +227,31 @@ def export_mssql_bcp():
         trust_server_certificate=True
     )
     
-    logger.info(f"🔄 Exécution BCP: {Config.QUERY[:50]}...")
+    logger.info(f"🔄 Exécution BCP...")
     start_time = time.time()
     
     try:
-        # Export (retourne success, duration, size)
+        # Export BCP (retourne success, durée, taille)
         success, bcp_duration, file_size_mb = exporter.export(
-            query=Config.QUERY,
+            table_name=table_name,
             output_path=Config.OUTPUT_PATH,
-            delimiter=Config.DELIMITER
+            delimiter=Config.DELIMITER,
+            top_n=top_n
         )
         
-        # Durée totale de la fonction
         total_duration = time.time() - start_time
         
-        # info
+        # Log des informations
         logger.info(f"✅ Export BCP terminé en {total_duration:.2f}s")
         logger.info(f"   Temps BCP: {bcp_duration:.2f}s")
         logger.info(f"   Fichier: {Config.OUTPUT_PATH}")
         logger.info(f"   Taille: {file_size_mb:.2f} MB")
         
         return success
-        
+    
     except Exception as e:
         logger.error(f"❌ Erreur BCP: {e}")
         raise
-
-
-def export_mssql_bcp_old():
-    """
-    Export SQL Server → CSV avec BCP
-    Équivalent: bcp "SELECT..." queryout "file.csv" -c -t "," -S server -d db -U user -P pwd
-    """
-    
-    logger.info("=" * 80)
-    logger.info("📤 Export BCP depuis SQL Server")
-    logger.info("=" * 80)
-    
-    # Créer le répertoire
-    Config.OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    
-    # Supprimer le fichier s'il existe
-    if Config.OUTPUT_PATH.exists():
-        Config.OUTPUT_PATH.unlink()
-        logger.info(f"🗑️  Fichier existant supprimé: {Config.OUTPUT_PATH}")
-    
-    # Commande BCP
-    bcp_command = [
-        Config.BCP_PATH,
-        Config.QUERY,
-        "queryout",
-        str(Config.OUTPUT_PATH),
-        "-c",                           # Character data
-        "-t", Config.DELIMITER,         # Field terminator
-        "-S", Config.MSSQL_SERVER,      # Server
-        "-d", Config.MSSQL_DATABASE,    # Database
-        "-U", Config.MSSQL_USER,        # Username
-        "-P", Config.MSSQL_PASSWORD,    # Password
-    ]
-    
-    logger.info(f"🔄 Exécution BCP: {Config.QUERY[:50]}...")
-    start_time = time.time()
-    
-    try:
-        # Exécuter BCP
-        result = subprocess.run(
-            bcp_command,
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        
-        duration = time.time() - start_time
-        file_size_mb = Config.OUTPUT_PATH.stat().st_size / (1024 * 1024)
-        
-        logger.info(f"✅ Export BCP terminé en {duration:.2f}s")
-        logger.info(f"   Fichier: {Config.OUTPUT_PATH}")
-        logger.info(f"   Taille: {file_size_mb:.2f} MB")
-        
-        return True
-        
-    except subprocess.CalledProcessError as e:
-        logger.error(f"❌ Erreur BCP: {e.stderr}")
-        raise
-
 
 def test_bcp_connection():
     """Tester la connexion BCP"""
@@ -291,9 +261,10 @@ def test_bcp_connection():
     # Requête simple pour tester
     test_query = "SELECT @@VERSION"
     test_output = Path("/tmp/bcp_test.txt")
-    
+    logger.info(f"{Config.MSSQL_SERVER}")
+
     exporter = BCPExporter(
-        server=Config.MSSQL_SERVER,
+        server=f"{Config.MSSQL_SERVER}",
         database=Config.MSSQL_DATABASE,
         username=Config.MSSQL_USER,
         password=Config.MSSQL_PASSWORD,
@@ -303,6 +274,7 @@ def test_bcp_connection():
     
     try:
         success, duration, size = exporter.export(
+            table_name = "dbo.v_Inventory_Parts_Ops",
             query=test_query,
             output_path=test_output,
             delimiter=","
@@ -329,4 +301,4 @@ if __name__ == "__main__":
     # D'abord tester la connexion
     if test_bcp_connection():
         # Puis faire l'export complet
-        export_mssql_bcp()
+        export_mssql_bcp(table_name = "dbo.v_Inventory_Parts_Ops")

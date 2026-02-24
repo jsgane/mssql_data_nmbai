@@ -2,11 +2,11 @@ import dagster as dg
 from dagster import AssetExecutionContext, RetryPolicy
 from dagster_embedded_elt.dlt import DagsterDltResource, dlt_assets
 import dlt
-from mssql_data_nmbai.defs.dlt_mssql_source import equipment_source, facture_source, tiers_source, inventory_parts_ops_source ##, gcm_retour_donnees_olga_source, devis_source, commande_source
+from mssql_data_nmbai.defs.dlt_mssql_source import equipment_source, facture_source, tiers_source, inventory_parts_ops_source, gcm_retour_donnees_olga_source##, devis_source, commande_source
 #from mssql_data_nmbai.defs.load_bcp_copy_into import run_pipeline, Config
 # Pipeline DLT
 pipeline = dlt.pipeline(
-    pipeline_name="mssql_to_snowflake_pipeline",
+    pipeline_name="mssql_to_snowflake_pipeline_",
     destination="snowflake",
     dataset_name="equipement",
     progress="log",

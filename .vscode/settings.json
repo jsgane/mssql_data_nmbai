@@ -1,3 +1,22 @@
 {
-    "sqltools.connections": []
+    "sqltools.connections": [
+        {
+            "authenticator": "SNOWFLAKE",
+            "ocspOptions": {
+                "ocspFailOpen": true
+            },
+            "snowflakeOptions": {
+                "clientSessionKeepAlive": true,
+                "clientSessionKeepAliveHeartbeatFrequency": 3600
+            },
+            "previewLimit": 50,
+            "driver": "Snowflake",
+            "name": "Con_snowflake",
+            "account": "dg63583.eu-west-1",
+            "username": "neemba_user",
+            "password": "Neemb@Password2025",
+            "database": "NEEMBA",
+            "warehouse": "COMPUTE_WH"
+        }
+    ]
 }

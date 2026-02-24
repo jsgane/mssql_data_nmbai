@@ -10,9 +10,11 @@ import urllib.parse
 import os
 import time
 import logging
-
+import unicodedata
+import re
 
 logger = logging.getLogger(__name__)
+
 
 
 def get_mssql_engine():
@@ -51,12 +53,13 @@ def get_mssql_engine():
 
 def create_dlt_source(
     table_name: str,
-    max_retries: int = 38,
+    max_retries: int = 3,
     retry_delay: int = 5
 ) -> DltResource:
     """
-    Créer une source DLT avec retry automatique
+    Créer une source DLT mssql
     """
+
     for attempt in range(max_retries):
         try:
             engine = get_mssql_engine()
@@ -82,7 +85,7 @@ def create_dlt_source(
             if attempt < max_retries - 1:
                 logger.info(f"⏳ Retry dans {retry_delay}s...")
                 time.sleep(retry_delay)
-                # Fermer l'engine pour éviter les connexions zombies
+                # Fermer l'engine pour éviter les connexions mortes
                 if 'engine' in locals():
                     engine.dispose()
             else:
@@ -180,20 +183,20 @@ def get_tiers_data() -> DltResource:
 def tiers_source():
     return get_tiers_data()
 
-##### GCM_Retour_Données_OLGA
-'''
+##### GCM_Retour_Donnees_OLGA
+
 @dlt.resource(
-    name="GCM_Retour_Données_OLGA",
+    name="GCM_Retour_Donnees_OLGA",
     write_disposition="replace",
 )
 def get_gcm_retour_donnees_olga_data() -> DltResource:
-    return create_dlt_source("GCM_Retour_Données_OLGA")
+    return create_dlt_source("GCM_Retour_Donnees_OLGA")
 
 
 @dlt.source
 def gcm_retour_donnees_olga_source():
     return get_gcm_retour_donnees_olga_data()
-'''
+
 
 ##### v_Inventory_Parts_Ops
 @dlt.resource(
