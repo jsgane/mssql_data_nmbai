@@ -26,6 +26,7 @@ share/python-wheels/
 *.egg
 MANIFEST
 .tmp_dagster_home*/*
+.tmp_dagster_home_*
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.

@@ -8,6 +8,7 @@ from mssql_data_nmbai.defs.assets import(
     tiers_dashboard_assets,
     gcm_retour_donnees_olga_assets,
     inventory_parts_ops_assets,
+    v_lean_pse_facture_comm_devis_assets,
 )
 
 
@@ -37,6 +38,10 @@ inventory_parts_ops_job = define_asset_job(
     selection=[inventory_parts_ops_assets],
 )
 
+v_lean_pse_facture_comm_devis_assets_job = define_asset_job(
+    name="v_lean_pse_facture_comm_devis_assets_job",
+    selection=[v_lean_pse_facture_comm_devis_assets],
+)
 
 
 #schedule : every day
@@ -66,13 +71,20 @@ inventory_parts_ops_schedule = ScheduleDefinition(
 )
 
 
+v_lean_pse_facture_comm_devis_schedule = ScheduleDefinition(
+    job= v_lean_pse_facture_comm_devis_assets_job,
+    cron_schedule="0 0 * * *", ## every day
+)
+
+
+
 defs = Definitions(
-    jobs= [equipment_dashboard_job,facture_dashboard_job,tiers_dashboard_job,inventory_parts_ops_job,gcm_retour_donnees_olga_job],
-    assets=[equipment_dashboard_assets,facture_dashboard_assets,tiers_dashboard_assets,inventory_parts_ops_assets,gcm_retour_donnees_olga_assets],
+    jobs= [equipment_dashboard_job,facture_dashboard_job,tiers_dashboard_job,inventory_parts_ops_job,gcm_retour_donnees_olga_job,v_lean_pse_facture_comm_devis_assets_job],
+    assets=[equipment_dashboard_assets,facture_dashboard_assets,tiers_dashboard_assets,inventory_parts_ops_assets,gcm_retour_donnees_olga_assets, v_lean_pse_facture_comm_devis_assets],
     resources={
         "dlt":DagsterDltResource(),
     },
-    schedules = [equipment_dashboard_schedule,facture_dashboard_schedule,tiers_dashboard_schedule,inventory_parts_ops_schedule,gcm_retour_donnees_olga_schedule]
+    schedules = [equipment_dashboard_schedule,facture_dashboard_schedule,tiers_dashboard_schedule,inventory_parts_ops_schedule,gcm_retour_donnees_olga_schedule, v_lean_pse_facture_comm_devis_schedule]
 )
 
 

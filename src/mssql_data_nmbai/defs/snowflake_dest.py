@@ -188,8 +188,9 @@ def upload_to_stage(cursor, logger):
         logger.info(f"📁 Fichiers dans le stage: {len(files)}")
         
     finally:
-        cursor.close()
-        conn.close()
+        logger.info(f"Connexion fermées dans la fonction qui appelle")
+    #    cursor.close()
+       # conn.close()
 
 
 # COPY INTO des données dans la table finale==============
@@ -215,7 +216,7 @@ def copy_into_table(cursor, snowflake_table_name: str, logger):
         PURGE = TRUE
         """
         
-        logger.info(f"🔄 Chargement dans {table_name}...")
+        logger.info(f"🔄 Chargement dans {snowflake_table_name}...")
         start_time = time.time()
         
         cursor.execute(sql_copy)
@@ -242,9 +243,9 @@ def copy_into_table(cursor, snowflake_table_name: str, logger):
         logger.info(f"📊❌ Nombre d'erreurs : {total_errors:,}")
         
         # Vérification finale
-        cursor.execute(f"SELECT COUNT(*) FROM {table_name}")
+        cursor.execute(f"SELECT COUNT(*) FROM {snowflake_table_name}")
         final_count = cursor.fetchone()[0]
-        logger.info(f"📊 Total dans la table {table_name}: {final_count:,}")
+        logger.info(f"📊 Total dans la table {snowflake_table_name}: {final_count:,}")
         
         return {
             'rows_loaded': total_rows,
@@ -252,9 +253,10 @@ def copy_into_table(cursor, snowflake_table_name: str, logger):
             'duration': duration
         }
         
-    finally:
-        cursor.close()
-        conn.close()
+    finally: 
+        logger.info(f"Connexion fermées dans la fonction qui appelle")
+    #    cursor.close()
+        #conn.close()
 
 
 ### Créer format de fichier, stage et table dans snowflake==============

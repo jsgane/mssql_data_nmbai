@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 import logging
 from mssql_data_nmbai.defs.config import Config, BCPExporter, export_mssql_bcp
 ##from mssql import export_mssql_bcp
-from mssql_data_nmbai.defs.snowflake_dest import setup_snowflake,upload_to_stage,copy_into_table
+from mssql_data_nmbai.defs.snowflake_dest import setup_snowflake,upload_to_stage,copy_into_table,upload_to_snowflake
 
 load_dotenv()
 logging.basicConfig(
@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 # PIPELINE COMPLET ================================================
 
 def extract_mssql_data(
-    snowflake_database: str,
+    snowflake_database: str = "NEEMBA",
     snowflake_schema: str, 
     mssql_table_name: str, 
     snowflake_table_name: str,

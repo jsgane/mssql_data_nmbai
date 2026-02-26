@@ -31,7 +31,7 @@ def inventory_parts_ops_assets(context: dg.AssetExecutionContext) -> dg.Material
     """Inventory Parts Ops from MSSQL"""
     
     result = extract_mssql_data(
-        snowflake_database = "NEEMBA",
+        ##snowflake_database = "NEEMBA",
         snowflake_schema = "EQUIPEMENT", 
         mssql_table_name = "V_Inventory_Parts_Ops",
         snowflake_table_name = "AI_V_Inventory_Parts_Ops",
@@ -53,7 +53,7 @@ def inventory_parts_ops_assets(context: dg.AssetExecutionContext) -> dg.Material
 def equipment_dashboard_assets(context: dg.AssetExecutionContext) -> dg.MaterializeResult:
     """Equipment from MSSQL"""
     result = extract_mssql_data(
-        snowflake_database = "NEEMBA",
+        #snowflake_database = "NEEMBA",
         snowflake_schema = "EQUIPEMENT", 
         mssql_table_name = "V_Equipment",
         snowflake_table_name = "AI_V_Equipment",
@@ -76,7 +76,7 @@ def facture_dashboard_assets(context: dg.AssetExecutionContext) -> dg.Materializ
     """Facture_dashboard_am from MSSQL"""
     
     result = extract_mssql_data(
-        snowflake_database = "NEEMBA",
+        #snowflake_database = "NEEMBA",
         snowflake_schema = "EQUIPEMENT", 
         mssql_table_name="V_facture_dashboard_am",
         snowflake_table_name="AI_V_facture_dashboard_am",
@@ -98,7 +98,7 @@ def tiers_dashboard_assets(context: dg.AssetExecutionContext) -> dg.MaterializeR
     """Tiers_dashboard_am from MSSQL"""
     
     result = extract_mssql_data(
-        snowflake_database = "NEEMBA",
+        #snowflake_database = "NEEMBA",
         snowflake_schema = "EQUIPEMENT", 
         mssql_table_name="V_tiers_dashboard_am",
         snowflake_table_name="AI_V_tiers_dashboard_am",
@@ -121,7 +121,7 @@ def gcm_retour_donnees_olga_assets(context: dg.AssetExecutionContext) -> dg.Mate
     """GCM_Retour_Donnees_OLGA from MSSQL"""
     
     result = extract_mssql_data(
-        snowflake_database = "NEEMBA",
+        #snowflake_database = "NEEMBA",
         snowflake_schema = "EQUIPEMENT", 
         mssql_table_name="GCM_Retour_Donnees_OLGA",
         snowflake_table_name="AI_GCM_Retour_Donnees_OLGA",
@@ -134,6 +134,28 @@ def gcm_retour_donnees_olga_assets(context: dg.AssetExecutionContext) -> dg.Mate
         }
     )  
 
+
+@dg.asset(
+    name="V_LEAD_PSE_Facture_Comm_Devis",
+    group_name="data_for_nmbai",
+    description="V_LEAD_PSE_Facture_Comm_Devis from MSSQL → Snowflake via BCP + COPY INTO",
+)
+def gcm_retour_donnees_olga_assets(context: dg.AssetExecutionContext) -> dg.MaterializeResult:
+    """V_LEAD_PSE_Facture_Comm_Devis from MSSQL"""
+    
+    result = extract_mssql_data(
+        #snowflake_database = "NEEMBA",
+        snowflake_schema = "EQUIPEMENT", 
+        mssql_table_name="V_LEAD_PSE_Facture_Comm_Devis",
+        snowflake_table_name="V_LEAD_PSE_Facture_Comm_Devis",
+        logger=context.log,
+    )
+
+    return dg.MaterializeResult(
+        metadata={
+            "rows_loaded": dg.MetadataValue.int(result["rows_loaded"]),
+        }
+    )  
 
 ###### ASSET USING DLT
 ##@dlt_assets(
