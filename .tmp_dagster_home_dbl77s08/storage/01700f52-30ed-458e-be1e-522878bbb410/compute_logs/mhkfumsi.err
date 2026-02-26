@@ -1,0 +1,19 @@
+[32m2026-02-26 11:52:12 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 01700f52-30ed-458e-be1e-522878bbb410 - 2473160 - LOGS_CAPTURED - Started capturing logs in process (pid: 2473160).
+[32m2026-02-26 11:52:12 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 01700f52-30ed-458e-be1e-522878bbb410 - 2473160 - GCM_Retour_Donnees_OLGA - STEP_START - Started execution of step "GCM_Retour_Donnees_OLGA".
+[32m2026-02-26 11:52:12 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 01700f52-30ed-458e-be1e-522878bbb410 - GCM_Retour_Donnees_OLGA - 
+================================================================================
+[32m2026-02-26 11:52:12 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 01700f52-30ed-458e-be1e-522878bbb410 - GCM_Retour_Donnees_OLGA - 🚀 PIPELINE MSSQL → SNOWFLAKE
+[32m2026-02-26 11:52:13 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 01700f52-30ed-458e-be1e-522878bbb410 - GCM_Retour_Donnees_OLGA - 📤➡️❄️  Méthode: BCP + COPY INTO
+[32m2026-02-26 11:52:13 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 01700f52-30ed-458e-be1e-522878bbb410 - GCM_Retour_Donnees_OLGA - ================================================================================
+
+[32m2026-02-26 11:52:13 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 01700f52-30ed-458e-be1e-522878bbb410 - GCM_Retour_Donnees_OLGA - ================================================================================
+[32m2026-02-26 11:52:13 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 01700f52-30ed-458e-be1e-522878bbb410 - GCM_Retour_Donnees_OLGA - 📤 Export BCP depuis SQL Server pour la table GCM_Retour_Donnees_OLGA
+[32m2026-02-26 11:52:13 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 01700f52-30ed-458e-be1e-522878bbb410 - GCM_Retour_Donnees_OLGA - ================================================================================
+[32m2026-02-26 11:52:13 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 01700f52-30ed-458e-be1e-522878bbb410 - GCM_Retour_Donnees_OLGA - 🗑️  Fichier existant supprimé: /tmp/mssql_export.csv
+2026-02-26 11:52:13,847 - INFO - 🔧 BCPExporter initialisé:
+2026-02-26 11:52:13,848 - INFO -    Mode: Natif
+2026-02-26 11:52:13,848 - INFO -    BCP: bcp
+[32m2026-02-26 11:52:13 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 01700f52-30ed-458e-be1e-522878bbb410 - GCM_Retour_Donnees_OLGA - 🔄 Exécution BCP...
+2026-02-26 11:52:13,946 - INFO - 💻 Mode natif
+2026-02-26 11:52:13,946 - INFO - 🔄 Commande BCP: bcp SELECT TOP 10000000 * FROM GCM_Retour_Donnees_OLGA WITH (NOLOCK) queryout /tmp/mssql_export.csv -c -C 65001 -t | -r 
+ -S *** -d *** -U *** -P ***
