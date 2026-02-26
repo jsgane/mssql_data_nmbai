@@ -46,8 +46,8 @@ class Config:
     SF_ROLE = os.getenv("SNOWFLAKE_ROLE", "transform")
     
     # Stage et File Format
-    STAGE_NAME = "MSSQL_DIRECT_STAGE"
     FILE_FORMAT_NAME = "mssql_csv_file_format"
+    STAGE_NAME = "MSSQL_DIRECT_STAGE"
     
     # BCP executable path
     #BCP_PATH = r"C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\bcp.exe"
@@ -150,6 +150,8 @@ class BCPExporter:
                 "-C", "65001",     # UTF-8
                 "-t", delimiter,
                 "-r", "\\n",
+                "-b", "100000",          # Batch de 100k rows
+                "-a", "32767",           # Packet size max
                 "-S", connection_string,
                 "-d", self.database,
                 "-U", self.username,
@@ -166,6 +168,8 @@ class BCPExporter:
                 "-C", "65001",     # UTF-8
                 "-t", delimiter,
                 "-r", "\n",
+                "-b", "100000",          # Batch de 100k rows
+                "-a", "32767",           # Packet size max
                 "-S", connection_string,
                 "-d", self.database,
                 "-U", self.username,
