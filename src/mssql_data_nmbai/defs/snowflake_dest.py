@@ -20,15 +20,15 @@ logger = logging.getLogger(__name__)
 
 
 #####  CRÉATION SNOWFLAKE (File Format, Stage, Table)==============
-def get_snowflake_connection():
+def get_snowflake_connection(database: str = Config.SF_DATABASE, schema: str = Config.SF_SCHEMA):
     """Créer connexion Snowflake"""
     return snowflake.connector.connect(
         account=Config.SF_ACCOUNT,
         user=Config.SF_USER,
         password=Config.SF_PASSWORD,
         warehouse=Config.SF_WAREHOUSE,
-        database=Config.SF_DATABASE,
-        schema=Config.SF_SCHEMA,
+        database=database,
+        schema=schema,
         role=Config.SF_ROLE,
     )
 
@@ -106,7 +106,9 @@ def create_snowflake_table(
     # Construire la requête DDL
     sql_ddl = generate_snowflake_ddl(
         mssql_table_name = mssql_table_name,
-        snowflake_table_name = snowflake_table_name
+        snowflake_table_name = snowflake_table_name,
+        snowflake_database = database,
+        snowflake_schema = schema
     )
     # Exécuter
     cursor.execute(sql_ddl)
@@ -116,7 +118,13 @@ def create_snowflake_table(
 
 
 ### Créer format de fichier, stage et table dans snowflake==============
-def setup_snowflake(mssql_table_name: str, snowflake_table_name: str, logger):
+def setup_snowflake(
+    snowflake_database: str,
+    snowflake_schema: str, 
+    mssql_table_name: str, 
+    snowflake_table_name: str, 
+    logger
+):
     """
     Setup des objets Snowflake
     """
@@ -125,29 +133,28 @@ def setup_snowflake(mssql_table_name: str, snowflake_table_name: str, logger):
     logger.info("🔧 Setup Snowflake")
     logger.info("=" * 80)
     
-    conn = get_snowflake_connection()
+    conn = get_snowflake_connection(database = snowflake_database, schema = snowflake_schema)
     cursor = conn.cursor()
     
     try:
         create_file_format(cursor, logger)
         create_stage(cursor, logger)
         create_snowflake_table(
-            cursor, 
-            "NEEMBA", 
-            "EQUIPEMENT", 
-            mssql_table_name,
-            snowflake_table_name, 
-            logger
+            cursor = cursor, 
+            database = snowflake_database, #"NEEMBA",
+            schema = snowflake_schema, #"EQUIPEMENT",          
+            mssql_table_name = mssql_table_name,
+            snowflake_table_name = snowflake_table_name, 
+            logger = logger
         )
         
     finally:
         cursor.close()
         conn.close()
 
-
 # Upload du fichier dans le stage de snowflake avec la commande PUT==============
 
-def upload_to_stage(logger):
+def upload_to_stage(cursor, logger):
     """
     Upload du fichier vers le stage
     Équivalent: PUT file://... @STAGE AUTO_COMPRESS=TRUE
@@ -156,10 +163,7 @@ def upload_to_stage(logger):
     logger.info("=" * 80)
     logger.info("📤 Upload vers Snowflake Stage")
     logger.info("=" * 80)
-    
-    conn = get_snowflake_connection()
-    cursor = conn.cursor()
-    
+        
     try:
         # PUT command (utiliser forward slashes)
         file_path = str(Config.OUTPUT_PATH).replace("\\", "/")
@@ -190,7 +194,7 @@ def upload_to_stage(logger):
 
 # COPY INTO des données dans la table finale==============
 
-def copy_into_table(table_name: str, logger):
+def copy_into_table(cursor, snowflake_table_name: str, logger):
     """
     Chargement final avec COPY INTO
     Équivalent: COPY INTO table FROM @STAGE...
@@ -200,13 +204,10 @@ def copy_into_table(table_name: str, logger):
     logger.info("📥 COPY INTO Snowflake")
     logger.info("=" * 80)
     
-    conn = get_snowflake_connection()
-    cursor = conn.cursor()
-    
     try:
-        sql_truncate = f"Truncate table {table_name}"
+        sql_truncate = f"Truncate table {snowflake_table_name}"
         sql_copy = f"""
-        COPY INTO {table_name}
+        COPY INTO {snowflake_table_name}
         FROM @{Config.STAGE_NAME}
         FILE_FORMAT = (FORMAT_NAME = {Config.FILE_FORMAT_NAME})
         --ON_ERROR = 'ABORT_STATEMENT'
@@ -256,7 +257,44 @@ def copy_into_table(table_name: str, logger):
         conn.close()
 
 
+### Créer format de fichier, stage et table dans snowflake==============
+def upload_to_snowflake(
+    snowflake_database: str,
+    snowflake_schema: str, 
+    snowflake_table_name: str, 
+    logger
+):
+    """
+    Upload + copy into
+    """
+    
+    logger.info("=" * 80)
+    logger.info("🔧 Upload + copy into Snowflake")
+    logger.info("=" * 80)
+    
+    conn = get_snowflake_connection(database = snowflake_database, schema = snowflake_schema)
+    cursor = conn.cursor()
+    
+    try:
+        upload_to_stage(cursor, logger)
+        result = copy_into_table(cursor = cursor, snowflake_table_name = snowflake_table_name, logger = logger)
+        return result
+    finally:
+        cursor.close()
+        conn.close()
+
+
 if __name__ == "__main__":
-    setup_snowflake(mssql_table_name="V_Inventory_Parts_Ops", snowflake_table_name = "AI_V_Inventory_Parts_Ops")
-    upload_to_stage()
-    copy_into_table(table_name="AI_V_Inventory_Parts_Ops")
+    setup_snowflake(
+        snowflake_database = "NEEMBA",
+        snowflake_schema = "EQUIPEMENT", 
+        mssql_table_name = "V_Inventory_Parts_Ops",
+        snowflake_table_name = "AI_V_Inventory_Parts_Ops",
+        logger = logger
+    )
+    upload_to_snowflake(
+        snowflake_database = "NEEMBA",
+        snowflake_schema = "EQUIPEMENT", 
+        snowflake_table_name = "AI_V_Inventory_Parts_Ops",
+        logger = logger
+    )

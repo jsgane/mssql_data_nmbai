@@ -31,9 +31,11 @@ def inventory_parts_ops_assets(context: dg.AssetExecutionContext) -> dg.Material
     """Inventory Parts Ops from MSSQL"""
     
     result = extract_mssql_data(
-        mssql_table_name="V_Inventory_Parts_Ops",
-        snowflake_table_name="AI_V_INVENTORY_PARTS_OPS",
-        logger=context.log,
+        snowflake_database = "NEEMBA",
+        snowflake_schema = "EQUIPEMENT", 
+        mssql_table_name = "V_Inventory_Parts_Ops",
+        snowflake_table_name = "AI_V_Inventory_Parts_Ops",
+        logger = context.log,
     )
 
     return dg.MaterializeResult(
@@ -50,11 +52,12 @@ def inventory_parts_ops_assets(context: dg.AssetExecutionContext) -> dg.Material
 )
 def equipment_dashboard_assets(context: dg.AssetExecutionContext) -> dg.MaterializeResult:
     """Equipment from MSSQL"""
-    
     result = extract_mssql_data(
-        mssql_table_name="V_Equipment",
-        snowflake_table_name="AI_V_Equipment",
-        logger=context.log,
+        snowflake_database = "NEEMBA",
+        snowflake_schema = "EQUIPEMENT", 
+        mssql_table_name = "V_Equipment",
+        snowflake_table_name = "AI_V_Equipment",
+        logger = context.log,
     )
 
     return dg.MaterializeResult(
@@ -73,6 +76,8 @@ def facture_dashboard_assets(context: dg.AssetExecutionContext) -> dg.Materializ
     """Facture_dashboard_am from MSSQL"""
     
     result = extract_mssql_data(
+        snowflake_database = "NEEMBA",
+        snowflake_schema = "EQUIPEMENT", 
         mssql_table_name="V_facture_dashboard_am",
         snowflake_table_name="AI_V_facture_dashboard_am",
         logger=context.log,
@@ -93,6 +98,8 @@ def tiers_dashboard_assets(context: dg.AssetExecutionContext) -> dg.MaterializeR
     """Tiers_dashboard_am from MSSQL"""
     
     result = extract_mssql_data(
+        snowflake_database = "NEEMBA",
+        snowflake_schema = "EQUIPEMENT", 
         mssql_table_name="V_tiers_dashboard_am",
         snowflake_table_name="AI_V_tiers_dashboard_am",
         logger=context.log,
@@ -114,6 +121,8 @@ def gcm_retour_donnees_olga_assets(context: dg.AssetExecutionContext) -> dg.Mate
     """GCM_Retour_Donnees_OLGA from MSSQL"""
     
     result = extract_mssql_data(
+        snowflake_database = "NEEMBA",
+        snowflake_schema = "EQUIPEMENT", 
         mssql_table_name="GCM_Retour_Donnees_OLGA",
         snowflake_table_name="AI_GCM_Retour_Donnees_OLGA",
         logger=context.log,

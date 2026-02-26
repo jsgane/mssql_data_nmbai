@@ -22,6 +22,8 @@ logger = logging.getLogger(__name__)
 # PIPELINE COMPLET ================================================
 
 def extract_mssql_data(
+    snowflake_database: str,
+    snowflake_schema: str, 
     mssql_table_name: str, 
     snowflake_table_name: str,
     logger
@@ -42,14 +44,25 @@ def extract_mssql_data(
         # 1. Export BCP
         export_mssql_bcp(table_name = mssql_table_name, logger = logger)
         # Setup Snowflake (Créer file_format, stage et table)
-        setup_snowflake(mssql_table_name = mssql_table_name, 
-                        snowflake_table_name = snowflake_table_name,
-                        logger = logger
+        setup_snowflake(
+            snowflake_database = snowflake_database,
+            snowflake_schema = snowflake_schema, 
+            mssql_table_name = "V_Inventory_Parts_Ops",
+            snowflake_table_name = "AI_V_Inventory_Parts_Ops",
+            logger = logger
         )
+        result = upload_to_snowflake(
+            snowflake_database = snowflake_database,
+            snowflake_schema = snowflake_schema, 
+            snowflake_table_name = "AI_V_Inventory_Parts_Ops",
+            logger = logger
+        )
+
+
         # Upload dans le staging (On a utilisé CSV mais peut être changé en parquet dans snowflake_dest.py)
-        upload_to_stage(logger = logger)
+        #upload_to_stage(logger = logger)
         # COPY INTO stage -> table
-        result = copy_into_table(table_name = snowflake_table_name, logger = logger)        
+        #result = copy_into_table(table_name = snowflake_table_name, logger = logger)        
         # Durée totale
         total_duration = time.time() - start_time
         
@@ -67,9 +80,11 @@ def extract_mssql_data(
         raise
 
 
-#if __name__ == "__main__":
-#    extract_mssql_data(
-#        mssql_table_name = "V_Inventory_Parts_Ops",
-#        snowflake_table_name= "AI_V_Inventory_Parts_Ops",
-#        logger
-#    )
+if __name__ == "__main__":
+    extract_mssql_data(
+        snowflake_database = "NEEMBA",
+        snowflake_schema = "EQUIPEMENT", 
+        mssql_table_name = "V_Inventory_Parts_Ops",
+        snowflake_table_name = "AI_V_Inventory_Parts_Ops",
+        logger = logger
+    )
