@@ -101,35 +101,41 @@ def gcm_retour_donnees_olga_assets(context: dg.AssetExecutionContext, dlt: Dagst
 ##        context.log.error(f"❌ Inventory asset failed: {e}")
 ##        raise
 
-@dlt_assets(
-    dlt_source=make_inventory_parts_ops_source(logging.getLogger(__name__)),
-    dlt_pipeline=pipeline,
+##@dlt_assets(
+##    dlt_source=make_inventory_parts_ops_source(logging.getLogger(__name__)),
+##    dlt_pipeline=pipeline,
+##    name="v_Inventory_Parts_Ops",
+##    group_name="data_for_nmbai",
+##    #retry_policy=retry_policy,
+##)
+##def inventory_parts_ops_assets(context: dg.AssetExecutionContext, dlt: DagsterDltResource):
+##    """Inventory Parts Ops from MSSQL"""
+##    try:
+##        dlt_source = make_inventory_parts_ops_source(context.log)
+##        yield from dlt.run(context=context, dlt_source=dlt_source)
+##    except Exception as e:
+##        context.log.error(f"❌ Inventory asset failed: {e}")
+##        raise
+
+@dg.asset(
     name="v_Inventory_Parts_Ops",
     group_name="data_for_nmbai",
-    #retry_policy=retry_policy,
+    description="Inventory Parts Ops from MSSQL → Snowflake via BCP + COPY INTO",
 )
-def inventory_parts_ops_assets(context: dg.AssetExecutionContext, dlt: DagsterDltResource):
+def inventory_parts_ops_assets(context: dg.AssetExecutionContext) -> dg.MaterializeResult:
     """Inventory Parts Ops from MSSQL"""
-    try:
-        dlt_source = make_inventory_parts_ops_source(context.log)
-        for resource in dlt_source.resources.values():
-            schema_columns = resource.columns or {}
-            nullable_patch = {
-                col_name: {**col_def, "nullable": True}
-                for col_name, col_def in schema_columns.items()
-            }
-            if nullable_patch:
-                resource.apply_hints(columns=nullable_patch)
+    
+    result = extract_mssql_data(
+        mssql_table_name="V_Inventory_Parts_Ops",
+        snowflake_table_name="AI_V_INVENTORY_PARTS_OPS",
+        logger=context.log,
+    )
 
-        yield from dlt.run(
-            context=context,
-            dlt_source=dlt_source,
-            loader_file_format="jsonl",
-        )
-    except Exception as e:
-        context.log.error(f"❌ Inventory asset failed: {e}")
-        raise
-
+    return dg.MaterializeResult(
+        metadata={
+            "rows_loaded": dg.MetadataValue.int(result["rows_loaded"]),
+        }
+    )
 
 ###  Cet asset utilise bcp + copy into
 #@asset(
