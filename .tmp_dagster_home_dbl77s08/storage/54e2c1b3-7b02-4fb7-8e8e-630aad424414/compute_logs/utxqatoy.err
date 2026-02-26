@@ -27,3 +27,68 @@
 [32m2026-02-26 12:14:12 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ================================================================================
 2026-02-26 12:14:12,664 - INFO - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.3, Platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
 2026-02-26 12:14:12,665 - INFO - Connecting to GLOBAL Snowflake domain
+[32m2026-02-26 12:14:15 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 🔧 Création du file format CSV...
+[32m2026-02-26 12:14:16 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ✅ File format mssql_csv_file_format créé
+[32m2026-02-26 12:14:16 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 🔧 Création du stage...
+[32m2026-02-26 12:14:16 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ✅ Stage MSSQL_DIRECT_STAGE créé
+[32m2026-02-26 12:14:16 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 🔧 Création de la table NEEMBA.EQUIPEMENT.V_Inventory_Parts_Ops...
+2026-02-26 12:14:16,423 - INFO - 🔧 Génération DDL: AI_V_INVENTORY_PARTS_OPS
+2026-02-26 12:14:16,424 - INFO - 📋 Extraction du schéma: V_Inventory_Parts_Ops
+2026-02-26 12:14:18,317 - INFO - ✅ 20 colonnes extraites
+2026-02-26 12:14:18,394 - INFO - ✅ DDL généré (20 colonnes)
+ CREATE OR REPLACE TABLE NEEMBA.EQUIPEMENT.AI_V_INVENTORY_PARTS_OPS (
+    Sequentiel_fifo NUMBER(10,0),
+    Code_Societe VARCHAR(10) NULL,
+    Libelle_Societe VARCHAR(50) NULL,
+    Code_Agence VARCHAR(10),
+    Libelle_Agence VARCHAR(50),
+    Code_Constructeur VARCHAR(10) NULL,
+    Libelle_Constructeur VARCHAR(50) NULL,
+    Code_Produit VARCHAR(35),
+    Libelle_Produit VARCHAR(200),
+    Date_Entree_Stock TIMESTAMP_NTZ,
+    Valeur_Stock_Total_EUR NUMBER(38,4),
+    Quantite_Allouee NUMBER(10,0),
+    Quantite_Non_Allouee NUMBER(10,0),
+    PMP_EUR NUMBER(25,2),
+    Type_Stock VARCHAR(10) NULL,
+    Libelle_Type_Stock VARCHAR(50) NULL,
+    Return_Code NUMBER(10,0),
+    Age_Stock NUMBER(38,6),
+    Qte_En_Stock NUMBER(10,2),
+    NB_Demands_12m NUMBER(10,0)
+)
+[32m2026-02-26 12:14:18 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ✅ Table V_Inventory_Parts_Ops créée avec succès
+[32m2026-02-26 12:14:18 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops -    Localisation: NEEMBA.EQUIPEMENT.V_Inventory_Parts_Ops
+[32m2026-02-26 12:14:19 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ================================================================================
+[32m2026-02-26 12:14:19 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 📤 Upload vers Snowflake Stage
+[32m2026-02-26 12:14:19 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ================================================================================
+2026-02-26 12:14:19,108 - INFO - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.3, Platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+2026-02-26 12:14:19,108 - INFO - Connecting to GLOBAL Snowflake domain
+[32m2026-02-26 12:14:21 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 🔄 Upload de mssql_export.csv...
+[32m2026-02-26 12:14:25 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ✅ Upload terminé en 3.76s
+[32m2026-02-26 12:14:25 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 📁 Fichiers dans le stage: 1
+[32m2026-02-26 12:14:25 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ================================================================================
+[32m2026-02-26 12:14:25 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 📥 COPY INTO Snowflake
+[32m2026-02-26 12:14:25 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ================================================================================
+2026-02-26 12:14:25,936 - INFO - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.3, Platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+2026-02-26 12:14:25,937 - INFO - Connecting to GLOBAL Snowflake domain
+[32m2026-02-26 12:14:28 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 🔄 Chargement dans AI_V_INVENTORY_PARTS_OPS...
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops -    ✓ mssql_direct_stage/mssql_export.csv.gz: 210,628 lignes
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ✅ COPY INTO terminé en 3.68s
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 📊✅ Nombre de lignes chargées : 210,628
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 📊❌ Nombre d'erreurs : 1
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 📊 Total dans la table AI_V_INVENTORY_PARTS_OPS: 210,627
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 
+================================================================================
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ✅ PIPELINE TERMINÉ AVEC SUCCÈS
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 🕒 Temps total Snowflake: 125.05s
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - 📊 Total lignes insérées: 210,628
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ⚡ Débit: 1684 rows/sec
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - v_Inventory_Parts_Ops - ================================================================================
+
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - 2526138 - v_Inventory_Parts_Ops - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2026-02-26 12:14:32,878 - INFO - Context impl SQLiteImpl.
+2026-02-26 12:14:32,878 - INFO - Will assume non-transactional DDL.
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - 2526138 - v_Inventory_Parts_Ops - ASSET_MATERIALIZATION - Materialized value v_Inventory_Parts_Ops.
+[32m2026-02-26 12:14:32 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 54e2c1b3-7b02-4fb7-8e8e-630aad424414 - 2526138 - v_Inventory_Parts_Ops - STEP_SUCCESS - Finished execution of step "v_Inventory_Parts_Ops" in 2m5s.

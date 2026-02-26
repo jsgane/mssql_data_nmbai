@@ -473,17 +473,16 @@ def generate_snowflake_ddl(
     snowflake_schema: str = "EQUIPEMENT"
 ) -> str:
     """
-    Génère le DDL Snowflake complet
+    Génère le DDL Snowflake
     
     Args:
         mssql_table_name: Nom table Mssql
         snowflake_table: Nom table Snowflake
         snowflake_database: Base Snowflake
         snowflake_schema: Schéma Snowflake
-        add_metadata: Ajouter colonnes métadata (_LOADED_AT, etc.)
     
     Returns:
-        DDL CREATE TABLE complet
+        DDL CREATE TABLE
     
     Example:
         ddl = generate_snowflake_ddl(
@@ -507,7 +506,7 @@ def generate_snowflake_ddl(
     for col_name, col_type in columns:
         col_name = col_name.replace("é","e")
         col_name = col_name.replace("è","e")
-        
+
         ddl_lines.append(f"    {col_name} {col_type},")
     
     # Enlever la dernière virgule
@@ -521,7 +520,7 @@ def generate_snowflake_ddl(
     
     return ddl
 
-
+##### Tests
 def test_bcp_connection():
     """Tester la connexion BCP"""
     
